@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Thomas HARDY</title>
+    
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto+Mono:wght@400;500&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+       /* ==================== CONFIGURATION (CONSOLE) ==================== */
+        :root {
+            /* --- IMAGE & CADRAGE --- */
+            --bg-image-url: url('fond.jpg'); 
+            --bg-position: center 30%; 
+            --header-height: 450px; 
+
+            /* --- TYPOGRAPHIE & COULEURS (Style V1) --- */
+            --font-title: 'Montserrat', sans-serif; 
+            --font-body: 'Roboto', sans-serif; 
+            --font-tech: 'Roboto Mono', monospace; /* Pour le code/technique */
+
+            --primary-color: #2c3e50; /* Bleu nuit ingénieur */
+            --accent-color: #d35400; /* Orange industriel */
+            --text-color: #333333;
+            --page-bg: #ffffff;
+            
+            /* Styles spécifiques V1 */
+            --tag-bg: #eef1f3;
+            --tag-text: #444;
+            --timeline-color: #eee;
+        }
+
+        /* ==================== RESET & BASE ==================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--page-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==================== HEADER (HERO V1) ==================== */
+        header {
+            position: relative;
+            height: var(--header-height);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background-image: var(--bg-image-url);
+            background-size: cover;
+            background-position: var(--bg-position);
+            background-repeat: no-repeat;
+        }
+
+        /* Masque dégradé */
+        header::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 70%, var(--page-bg) 100%);
+            z-index: 1;
+        }
+        /* Voile sombre léger */
+        header::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); z-index: 1;
+        }
+
+        .header-content {
+            position: relative; z-index: 2; margin-top: 40px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        }
+
+        h1 {
+            font-family: var(--font-title);
+            font-size: 3.5rem; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; margin-bottom: 0.2rem;
+        }
+
+        /* Style étiquette code du CV-1 */
+        .subtitle {
+            font-family: var(--font-tech);
+            font-size: 1.2rem;
+            background-color: var(--accent-color);
+            padding: 5px 15px;
+            display: inline-block;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* ==================== CONTENEUR GRILLE ==================== */
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 32% 64%; /* 1/3 - 2/3 */
+            gap: 4%;
+            position: relative; z-index: 3;
+        }
+
+        h2 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            color: #222;
+        }
+
+        /* ==================== SIDEBAR (GAUCHE) STYLE V1 ==================== */
+        .skill-group { margin-bottom: 1.5rem; }
+        
+        .skill-title {
+            font-weight: bold; text-decoration: underline; margin-bottom: 0.5rem; 
+            color: var(--primary-color); display: block;
+        }
+
+        /* Listes avec bordure gauche interactive (Style CV-1) */
+        ul.simple-list { list-style: none; }
+        ul.simple-list li {
+            margin-bottom: 0.3rem;
+            padding-left: 10px;
+            border-left: 2px solid #ddd;
+            transition: border-color 0.3s;
+            font-size: 0.95rem;
+        }
+        ul.simple-list li:hover {
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* --- STYLES DES TAGS (LOGICIELS / INTERETS) --- */
+        /* Note : Pour activer ce style, entoure tes mots de <span> dans le HTML */
+        .software-text span, .interest-list span, .interest-tags span {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin: 0 4px 4px 0;
+            font-family: var(--font-tech);
+            border: 1px solid #ddd;
+        }
+        
+        .software-bonus { font-style: italic; font-size: 0.9rem; margin-top: 5px; color: #666;}
+
+        /* ==================== CONTENU PRINCIPAL (DROITE) ==================== */
+        
+        /* La ligne temporelle verticale du CV-1 */
+        main {
+            border-left: 1px solid var(--timeline-color);
+            padding-left: 20px;
+        }
+
+        .job-card { margin-bottom: 2rem; position: relative; }
+        .edu-card { margin-bottom: 1.5rem; position: relative; }
+
+        .job-header {
+            display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+        }
+
+        .job-company { font-style: italic; color: #666; font-weight: 500; margin-bottom: 5px; }
+
+        .job-date {
+            font-family: var(--font-tech);
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            background: #f9f9f9;
+            padding: 2px 6px;
+            border: 1px solid #eee;
+        }
+
+        .job-desc ul { list-style: none; margin-top: 8px; }
+        .job-desc ul li {
+            position: relative; padding-left: 15px; margin-bottom: 4px; color: #444;
+        }
+        /* Puce personnalisée */
+        .job-desc ul li::before {
+            content: '•'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold;
+        }
+
+        .edu-details { 
+            font-size: 0.9rem; color: #555; margin-top: 5px; 
+            padding-left: 10px; border-left: 2px solid var(--accent-color);
+        }
+
+        /* ==================== FOOTER (INTERETS) STYLE V1 ==================== */
+        .footer-interests {
+            grid-column: 1 / -1;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+            border-top: none;
+        }
+        .interest-list {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 10px;
+        }
+
+        /* ==================== MOBILE ==================== */
+        @media screen and (max-width: 768px) {
+            .container { grid-template-columns: 1fr; padding: 10px; gap: 20px; }
+            main { border-left: none; padding-left: 0; }
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1rem; }
+            :root { --header-height: 280px; }
+            .header-content { margin-top: 20px; }
+        }
+
+        /* ==================== PRINT (IMPRESSION PDF A4 OPTIMISÉE) ==================== */
+        /* Ici, on écrase le style "Joli V1" pour revenir au style "Compact V2" */
+        @media print {
+            @page { size: A4; margin: 0.7cm; }
+
+            body { 
+                font-size: 9.5pt; /* Police réduite */ 
+                background: white; 
+                line-height: 1.25; 
+                color: black;
+            }
+
+            /* Reset Header */
+            header {
+                height: auto; background: none !important; display: block;
+                padding-bottom: 5px; margin-bottom: 10px;
+                border-bottom: 2px solid black; text-align: left;
+            }
+            header::after, header::before { display: none; }
+            
+            .header-content { margin-top: 0; text-shadow: none; color: black; }
+            h1 { font-size: 20pt; color: black; margin-bottom: 0; letter-spacing: 0; }
+            .subtitle { 
+                font-size: 11pt; color: black; background: none; padding: 0; border: none; font-weight: normal; margin-top: 2px;
+            }
+
+            /* Layout Compact */
+            .container {
+                display: grid; grid-template-columns: 30% 68%; gap: 20px;
+                padding: 0; margin: 0; width: 100%; max-width: 100%;
+            }
+            main { border-left: none; padding-left: 0; }
+
+            h2 { 
+                font-size: 11pt; border-bottom: 1px solid black; 
+                margin-bottom: 6px; margin-top: 0; padding-bottom: 0; color: black;
+            }
+            h3 { font-size: 10pt; margin-bottom: 1px; color: black; }
+
+            /* Compression des espaces */
+            .skill-group, .job-card, .edu-card { margin-bottom: 8px; page-break-inside: avoid; }
+            
+            /* Suppression du style "Tags/Boutons" pour l'encre */
+            .software-text span, .interest-list span {
+                background: none; border: none; padding: 0; margin: 0; display: inline; color: black;
+            }
+            /* Ajout de virgules entre les spans si tu utilises des spans */
+            .software-text span::after { content: ", "; }
+            .software-text span:last-child::after { content: "."; }
+
+            ul.simple-list li { border: none; padding-left: 0; margin-bottom: 1px; }
+            .job-date { border: none; background: none; color: black; padding: 0; text-align: right; }
+            .job-company { color: black; margin-bottom: 1px; }
+            .job-desc ul { margin-top: 2px; }
+            .job-desc ul li::before { color: black; content: '-'; }
+
+            /* Footer compact */
+            .footer-interests { 
+                padding: 10px 0; margin-top: 10px; background: none; border-top: 1px solid #ccc; text-align: left; 
+            }
+            .interest-list { justify-content: flex-start; gap: 5px; }
+
+            /* Cache éléments inutiles */
+            .no-print { display: none; }
+        }
+        </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Thomas HARDY</h1>
+            <div class="subtitle">Conception - Fabrication - Prototypage</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- COLONNE GAUCHE -->
+        <aside>
+            <section>
+                <h2>Compétences</h2>
+                
+                <div class="skill-group">
+                    <span class="skill-title">Gestion de projets</span>
+                    <ul class="simple-list">
+                        <li>Rédaction et analyse de cahier des charges</li>
+                        <li>Etude de l’analyse fonctionnelle</li>
+                        <li>Cinématique, prédimensionnement</li>
+                        <li>Cotation, devis, demande de prix</li>
+                        <li>Modélisation 3D paramétrable <i>(Solide, surfacique, polygonale)</i></li>
+                        <li>Gestion d’assemblage, mise en plan</li>
+                        <li>Rendu 3D réaliste et technique</li>
+                        <li>Préparation des fichiers d’usinages</li>
+                        <li>Scanne 3D, impression 3D</li>
+                        <li>Dessin et perspective à main levée</li>
+                        <li>Benchmark, veille, culture métier</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-title">Logiciels Informatiques</span>
+                    <div class="software-text">
+                        Catia V5, SolidWorks, PTC Creo, Rhinoceros, Grasshopper, VRay, Blender, Zbrush, Gravity Sketch (VR), Substance Modeler (VR), Photoshop, Illustrator, Davinci Resolve.
+                    </div>
+                    <div class="software-text" style="margin-top:5px;">Word, Powerpoint, Excel</div>
+                    <div class="software-bonus">
+                        Apprentissage rapide de nouveaux logiciels et méthodes.
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <span class="skill-title">Mise En Forme Matériaux</span>
+                    <ul class="simple-list">
+                        <li><strong>Usinage :</strong> Fraiseuse et tour CNC et conventionnelle, LAB, résines, bois, plastique, aluminium. Ajustage en atelier. Impression 3D, découpe laser.</li>
+                        <li><strong>Moulage :</strong> Fonderie, Stratification époxy, polyester, acrylique, Silicone, latex, alginate, plâtre.</li>
+                        <li><strong>Travail de carrosserie</strong></li>
+                        <li><strong>Soudure :</strong> Semi auto MIG, brasure, électroniques.</li>
+                        <li><strong>Sculpture/Façonnage :</strong> Mousse/LAB, plastique, métal, bois.</li>
+                        <li><strong>Modelage :</strong> Terre, plastiline, cire.</li>
+                    </ul>
+                </div>
+                
+                 <div class="skill-group">
+                    <span class="skill-title">Langues</span>
+                    <ul class="simple-list">
+                        <li>Anglais niveau Bac+3</li>
+                    </ul>
+                </div>
+            </section>
+        </aside>
+
+        <!-- COLONNE DROITE -->
+        <main>
+            <section>
+                <h2>Expériences Professionnelles</h2>
+
+                <article class="job-card">
+                    <div class="job-header">
+                        <h3>Maquettiste 3D, bijoutier, joaillier</h3>
+                        <span class="job-date">Mars 2021 – Mars 2022</span>
+                    </div>
+                    <div class="job-company">Société Bijouterie Nion Legrand (29)</div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Etude, conception 3D (Grasshopper/Rhino), impression 3D (résine), fonte (métaux précieux), travail à la cheville.</li>
+                            <li>Amélioration de la vitesse d’impression 3D et de l’état de surface des bruts de fonderie.</li>
+                            <li>Optimisation du temps de conception en 3D, modélisation procédurale.</li>
+                            <li>Encadrement de stagiaires.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="job-card">
+                    <div class="job-header">
+                        <h3>Dessinateur Projeteur</h3>
+                        <span class="job-date">Sept 2016 – Mars 2018</span>
+                    </div>
+                    <div class="job-company">Société CEA – Institut de Recherche sur les Lois Fondamentales de l’Univers (91)</div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Etude, conception 3D et mise en plan 2D d’équipements de mesure pour la recherche fondamentale. Optique, cryogénie, vide...</li>
+                            <li>Optimisation du temps de modification et de mise à jour des modèles 3D et plans 2D, modélisation procédurale.</li>
+                            <li>Génération de Macros, Power copy et utilisation des publications (CATIA V5).</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="job-card">
+                    <div class="job-header">
+                        <h3>Artiste Plasticien</h3>
+                        <span class="job-date">Mai 2015 - Sept 2016</span>
+                    </div>
+                    <div class="job-company">Freelance</div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Réalisation d'effets spéciaux et d'accessoires pour le « cinéma », animatronique, sculpture traditionnelle, moulage...</li>
+                            <li>Programmation de microcontrôleur en C (Arduino), modélisation 3D, impression 3D.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="job-card">
+                    <div class="job-header">
+                        <h3>Assistant Ingénieur</h3>
+                        <span class="job-date">Avril 2009 - Mai 2015</span>
+                    </div>
+                    <div class="job-company">Société Aviation Design (91)</div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Etude et réalisation de prototypes d’aéronefs, de maquettes de soufflerie et de modèles réduits d’avions de chasse.</li>
+                            <li>Gestion de projets pour le secteur militaire et spatial, conception et fabrication sur commande numérique (CATIA V5 - CFAO) de moules et outillages, stratification des matériaux composites, peinture, travail de carrosserie, assemblage des aéronefs, livraison client...</li>
+                            <li>Amélioration de la qualité des outillages et réduction du temps de fabrication.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="job-card">
+                    <div class="job-header">
+                        <h3>Dessinateur Projeteur</h3>
+                        <span class="job-date">Sept 2006 – Mars 2009</span>
+                    </div>
+                    <div class="job-company">Société 3DConcept (91)</div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Conception, fourniture et pose d’ouvrages métalliques (Hôpital Cochin, 104, boutiques APD...)</li>
+                            <li>Gestion de projets, devis, analyse du cahier des charges, recherche de documentations techniques et de normes, conception et mise en plan (Autocad, Prosteel 3D), mise en tôle et mise en barre, commande matière, interface avec l’atelier de production, fabrication en atelier, pose sur site.</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section>
+                <h2>Diplômes / Stages</h2>
+                
+                <div class="edu-card">
+                    <div class="job-header">
+                        <h3>BTS Développeur Web et Web Mobile</h3>
+                        <span class="job-date">2019</span>
+                    </div>
+                    <div class="job-company">Centre de formation AFPA - Brest</div>
+                    <div class="edu-details">
+                        Stage 2019 : Développer un site internet (JAVA...) de diffusion de bandes dessinées (Von Flex) (29)
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="job-header">
+                        <h3>Licence Pro Ingénierie Des Formes</h3>
+                        <span class="job-date">2006</span>
+                    </div>
+                    <div class="job-company">Henry Brisson - IUT Bourges</div>
+                    <div class="edu-details">
+                        Stage 2006 : Dessinateur intégrateur CATIA V5. Société M.V.M. (Manufacture Vosgienne de Meubles) (88)
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="job-header">
+                        <h3>BTS Conception de Produits Industriel</h3>
+                        <span class="job-date">2004</span>
+                    </div>
+                    <div class="job-company">Tristan Corbière – Morlaix</div>
+                    <div class="edu-details">
+                        Stage 2005 : Etude complète pour fabrication d’une machine de palettisation, projet à trois élèves.<br>
+                        Stage 2004 : Dessinateur CATIA V4, utilisation d’un moyen de prototypage rapide... Société LIVBAG (29)
+                    </div>
+                </div>
+
+                <div class="edu-card">
+                    <div class="job-header">
+                        <h3>BAC Génie Mécanique/Productique</h3>
+                        <span class="job-date">2003</span>
+                    </div>
+                    <div class="job-company">Vauban - Brest</div>
+                </div>
+            </section>
+
+             <section style="margin-top: 15px;">
+                <h2>Intérêts</h2>
+                <div class="interest-list">
+                    Pratique de la musique, modélisation 3D, dessin, DIY, sculpture, programmation, macrophotographie
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
