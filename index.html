@@ -1,12 +1,12 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Thomas HARDY</title>
 
-    <!-- Description pour Google (environ 160 caractères) -->
-    <meta name="description" content="CV de Thomas HARDY : Ingénieur conception, prototypage R&D et IA. Expert Catia, Comfyui, Impression 3D et développement technologique.">
+    <!-- Description pour Google -->
+    <meta name="description" content="CV Thomas HARDY: Ingénieur conception, prototypage R&D et IA. Expert Catia, Comfyui, Impression 3D et développement technologique.">
     
     <!-- Auteur -->
     <meta name="author" content="Thomas HARDY">
@@ -24,17 +24,16 @@
             --bg-position: center 45%; 
             --header-height: 450px; 
 
-            /* --- TYPOGRAPHIE & COULEURS (Style V1) --- */
+            /* --- TYPOGRAPHIE & COULEURS --- */
             --font-title: 'Montserrat', sans-serif; 
             --font-body: 'Roboto', sans-serif; 
-            --font-tech: 'Roboto Mono', monospace; /* Pour le code/technique */
+            --font-tech: 'Roboto Mono', monospace; 
 
-            --primary-color: #2c3e50; /* Bleu nuit ingénieur */
-            --accent-color: #d35400; /* Orange industriel */
+            --primary-color: #2c3e50; 
+            --accent-color: #d35400; 
             --text-color: #333333;
             --page-bg: #ffffff;
             
-            /* Styles spécifiques V1 */
             --tag-bg: #eef1f3;
             --tag-text: #d35400;
             --timeline-color: #eee;
@@ -52,7 +51,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ==================== HEADER (HERO V1) ==================== */
+        /* ==================== HEADER ==================== */
         header {
             position: relative;
             height: var(--header-height);
@@ -68,13 +67,11 @@
             background-repeat: no-repeat;
         }
 
-        /* Masque dégradé */
         header::after {
             content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 70%, var(--page-bg) 100%);
             z-index: 1;
         }
-        /* Voile sombre léger */
         header::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.4); z-index: 1;
@@ -90,7 +87,6 @@
             font-size: 3.5rem; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; margin-bottom: 0.2rem;
         }
 
-        /* Style étiquette code du CV-1 */
         .subtitle {
             font-family: var(--font-tech);
             font-size: 1.2rem;
@@ -101,15 +97,15 @@
             font-weight: 500;
         }
 
-        /* ==================== CONTENEUR GRILLE ==================== */
+        /* ==================== CONTAINER ==================== */
         .container {
             max-width: 1150px;
             margin: 0 auto;
             padding: 20px;
             display: grid;
-            grid-template-columns: 32% 64%; /* 1/3 - 2/3 */
-            column-gap: 4%;  /* Espacement horizontal (colonnes) */
-            row-gap: 25px;   /* Espacement vertical (lignes) -> Tu peux ajuster ce chiffre */
+            grid-template-columns: 32% 64%; 
+            column-gap: 4%;  
+            row-gap: 25px;   
             position: relative; z-index: 3;
         }
 
@@ -132,7 +128,7 @@
             color: #222;
         }
 
-        /* ==================== SIDEBAR (GAUCHE) STYLE V1 ==================== */
+        /* ==================== SIDEBAR ==================== */
         .skill-group { margin-bottom: 1.5rem; }
         
         .skill-title {
@@ -140,7 +136,6 @@
             color: var(--primary-color); display: block;
         }
 
-        /* Listes avec bordure gauche interactive (Style CV-1) */
         ul.simple-list { list-style: none; }
         ul.simple-list li {
             margin-bottom: 0.3rem;
@@ -149,12 +144,8 @@
             transition: border-color 0.3s;
             font-size: 0.95rem;
         }
-        ul.simple-list li:hover {
-            border-left: 3px solid var(--accent-color);
-        }
+        ul.simple-list li:hover { border-left: 3px solid var(--accent-color); }
 
-        /* --- STYLES DES TAGS (LOGICIELS / INTERETS) --- */
-        /* Note : Pour activer ce style, entoure tes mots de <span> dans le HTML */
         .software-text span, .interest-list span, .interest-tags span {
             display: inline-block;
             background: var(--tag-bg);
@@ -169,9 +160,7 @@
         
         .software-bonus { font-style: italic; font-size: 0.9rem; margin-top: 5px; color: #666;}
 
-        /* ==================== CONTENU PRINCIPAL (DROITE) ==================== */
-        
-        /* La ligne temporelle verticale du CV-1 */
+        /* ==================== MAIN CONTENT ==================== */
         main {
             border-left: 1px solid var(--timeline-color);
             padding-left: 20px;
@@ -180,10 +169,7 @@
         .job-card { margin-bottom: 2rem; position: relative; }
         .edu-card { margin-bottom: 1.5rem; position: relative; }
 
-        .job-header {
-            display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
-        }
-
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
         .job-company { font-style: italic; color: #666; font-weight: 500; margin-bottom: 5px; }
 
         .job-date {
@@ -200,7 +186,6 @@
         .job-desc ul li {
             position: relative; padding-left: 15px; margin-bottom: 4px; color: #444;
         }
-        /* Puce personnalisée */
         .job-desc ul li::before {
             content: '•'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold;
         }
@@ -210,7 +195,7 @@
             padding-left: 10px; border-left: 2px solid var(--accent-color);
         }
 
-        /* ==================== FOOTER (INTERETS) STYLE V1 ==================== */
+        /* ==================== FOOTER ==================== */
         .footer-interests {
             grid-column: 1 / -1;
             background: #f9f9f9;
@@ -220,51 +205,27 @@
             text-align: center;
             border-top: none;
         }
-        .interest-list {
-            display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 10px;
-        }
+        .interest-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
 
-        /* STYLE DU PROFIL */
+        /* ==================== EXTRA BLOCKS ==================== */
         .profile-intro {
-            grid-column: 1 / -1; /* Prend toute la largeur des 2 colonnes */
-            background-color: #fcfcfc; /* Fond très léger */
-            border-left: 5px solid var(--accent-color); /* Barre de couleur à gauche */
+            grid-column: 1 / -1; 
+            background-color: #fcfcfc; 
+            border-left: 5px solid var(--accent-color); 
             padding: 20px;
             margin-bottom: 0;
-            font-size: 1.05rem; /* Un peu plus grand que le reste */
+            font-size: 1.05rem; 
             color: #444;
             border-radius: 0 5px 5px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-
-        /* Style des liens dans la sidebar */
         .sidebar-links a {
-            text-decoration: none;      /* Enlève le soulignement classique */
-            color: #444;                /* Couleur gris foncé */
-            font-weight: 500;
-            border-bottom: 1px dotted #999; /* Petit soulignement discret */
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            display: block;             /* Prend toute la largeur pour cliquer facile */
+            text-decoration: none; color: #444; font-weight: 500;
+            border-bottom: 1px dotted #999; transition: all 0.3s ease;
+            font-size: 0.9rem; display: block;             
         }
-
-        .sidebar-links a:hover {
-            color: var(--accent-color); /* Devient orange au survol */
-            border-bottom: 1px solid var(--accent-color);
-        }
-
-        /* Petit ajustement pour l'impression (Optionnel) */
-        @media print {
-            .profile-intro {
-                border: 1px solid #ccc;
-                border-left: 5px solid black;
-                background: none;
-                font-size: 10pt;
-                margin-bottom: 15px;
-                padding: 10px;
-            }
-        }
+        .sidebar-links a:hover { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
 
         /* ==================== MOBILE ==================== */
         @media screen and (max-width: 768px) {
@@ -276,70 +237,105 @@
             .header-content { margin-top: 20px; }
         }
 
-        /* ==================== PRINT (IMPRESSION PDF A4 OPTIMISÉE) ==================== */
-        /* Ici, on écrase le style "Joli V1" pour revenir au style "Compact V2" */
+        /* ==================== PRINT (IMPRESSION PDF) ==================== */
         @media print {
-            @page { size: A4; margin: 0.7cm; }
+            @page { size: A4; margin: 0.5cm; } /* Marges minimales */
 
             body { 
-                font-size: 9.5pt; /* Police réduite */ 
+                font-size: 9pt; /* Police petite pour tout caser */
+                line-height: 1.15; 
                 background: white; 
-                line-height: 1.25; 
                 color: black;
+                -webkit-print-color-adjust: exact;
             }
 
-            /* Reset Header */
+            /* --- CACHER ÉLÉMENTS WEB --- */
+            .profile-intro, 
+            .header-content h1 + div, /* Cache sous-titre coloré par défaut */
+            header::before, header::after, 
+            aside h2:first-of-type, /* Cache titre LIENS */
+            aside .skill-group:has(.sidebar-links) /* Cache bloc LIENS (support moderne) */
+            { display: none !important; }
+
+            /* Si le navigateur est vieux et ne comprend pas :has */
+            aside h2:first-child, aside .skill-group:first-of-type { display: none !important; }
+
+            /* --- HEADER COMPACT --- */
             header {
-                height: auto; background: none !important; display: block;
-                padding-bottom: 5px; margin-bottom: 10px;
-                border-bottom: 2px solid black; text-align: left;
+                height: auto; background: none !important; 
+                display: block; text-align: left;
+                padding-bottom: 5px; margin-bottom: 10px; border-bottom: 2px solid black;
             }
-            header::after, header::before { display: none; }
+            .header-content { margin-top: 0; text-shadow: none; color: black; display: flex; justify-content: space-between; align-items: baseline;}
+            h1 { font-size: 16pt; color: black; margin: 0; letter-spacing: 0; }
             
-            .header-content { margin-top: 0; text-shadow: none; color: black; }
-            h1 { font-size: 20pt; color: black; margin-bottom: 0; letter-spacing: 0; }
-            .subtitle { 
-                font-size: 11pt; color: black; background: none; padding: 0; border: none; font-weight: normal; margin-top: 2px;
+            /* On recrée un sous-titre simple pour l'impression */
+            .header-content::after {
+                content: "R&D - Conception - Fabrication - Prototypage - IA";
+                font-size: 10pt; font-weight: bold; color: #444;
             }
+            .subtitle { display: none; } /* On cache le bouton orange */
 
-            /* Layout Compact */
+            /* --- LAYOUT --- */
             .container {
-                display: grid; grid-template-columns: 30% 68%; gap: 20px;
-                padding: 0; margin: 0; width: 100%; max-width: 100%;
+                display: grid; 
+                grid-template-columns: 28% 70%; /* Colonne droite plus large pour texte long */
+                gap: 15px; padding: 0; margin: 0; width: 100%; max-width: 100%;
             }
             main { border-left: none; padding-left: 0; }
 
+            /* --- TITRES --- */
             h2 { 
                 font-size: 11pt; border-bottom: 1px solid black; 
-                margin-bottom: 6px; margin-top: 0; padding-bottom: 0; color: black;
+                margin-bottom: 5px; margin-top: 0; padding-bottom: 0; color: black;
+                page-break-after: avoid;
             }
-            h3 { font-size: 10pt; margin-bottom: 1px; color: black; }
+            h3 { font-size: 10pt; margin-bottom: 0; color: black; margin-top: 0; display: inline-block;}
 
-            /* Compression des espaces */
-            .skill-group, .job-card, .edu-card { margin-bottom: 8px; page-break-inside: avoid; }
-            
-            /* Suppression du style "Tags/Boutons" pour l'encre */
-            .software-text span, .interest-list span {
-                background: none; border: none; padding: 0; margin: 0; display: inline; color: black;
+            /* --- COMPACTAGE BLOCS --- */
+            .skill-group { margin-bottom: 5px; break-inside: avoid; }
+            .job-card { margin-bottom: 8px; break-inside: avoid; }
+            .edu-card { margin-bottom: 4px; break-inside: avoid; }
+
+            /* --- LOGICIELS (Tags deviennent texte) --- */
+            .software-text span {
+                background: none; border: none; padding: 0; margin: 0; 
+                display: inline; color: black; font-size: 8.5pt;
             }
-            /* Ajout de virgules entre les spans si tu utilises des spans */
             .software-text span::after { content: ", "; }
-            .software-text span:last-child::after { content: "."; }
+            .software-text span:last-child::after { content: ""; }
+            .software-bonus { display: none; }
 
-            ul.simple-list li { border: none; padding-left: 0; margin-bottom: 1px; }
-            .job-date { border: none; background: none; color: black; padding: 0; text-align: right; }
-            .job-company { color: black; margin-bottom: 1px; }
-            .job-desc ul { margin-top: 2px; }
-            .job-desc ul li::before { color: black; content: '-'; }
-
-            /* Footer compact */
-            .footer-interests { 
-                padding: 10px 0; margin-top: 10px; background: none; border-top: 1px solid #ccc; text-align: left; 
+            /* --- LISTES & TEXTES --- */
+            ul.simple-list li { border: none; padding-left: 0; margin-bottom: 0; }
+            .job-desc ul { margin-top: 1px; }
+            .job-desc ul li { 
+                margin-bottom: 1px; padding-left: 8px; font-size: 8.5pt; line-height: 1.1;
             }
-            .interest-list { justify-content: flex-start; gap: 5px; }
+            .job-desc ul li::before { content: '-'; position: static; margin-right: 3px; color: black; }
+            
+            .job-date { float: right; border: none; background: none; color: black; padding: 0; font-size: 9pt; }
+            .job-company { display: block; margin-bottom: 1px; font-size: 9pt; color: #444; }
 
-            /* Cache éléments inutiles */
-            .no-print { display: none; }
+            /* --- DIPLOMES --- */
+            .edu-details { margin-top: 0; padding-left: 5px; border-left: 1px solid #999; font-size: 8pt; }
+
+            /* --- SIMPLIFICATION INTÉRÊTS (Demande spécifique) --- */
+            .footer-interests {
+                padding: 5px 0; margin-top: 5px; background: none; 
+                border-top: 1px solid black; text-align: left;
+                display: flex; align-items: baseline;
+            }
+            .footer-interests h2 { 
+                border: none; font-size: 10pt; margin-right: 10px; width: auto; 
+            }
+            .interest-tags { display: inline; }
+            .interest-item {
+                background: none; border: none; padding: 0; margin: 0; color: black; font-size: 9pt; display: inline;
+            }
+            .interest-item::after { content: " • "; color: #666; }
+            .interest-item:last-child::after { content: ""; }
+            /* Cacher emojis à l'impression si trop lourd visuellement, sinon laisser */
         }
         </style>
 </head>
@@ -355,7 +351,7 @@
     <div class="container">
         <div class="profile-intro">
             <p>
-                Naviguant entre l'exigence de l'aéronautique, la minutie de la haute joaillerie et l'innovation numérique, je suis un expert en conception et prototypage moderne. Je pratique également la création graphique et la musique au quotidien.
+                Naviguant entre l'exigence de l'aéronautique, la minutie de la haute joaillerie et les innovations numériques, je suis un expert en conception et prototypage industriel. Je pratique également la création graphique et la musique au quotidien.
             </p>
             <p style="margin-top: 10px;">
                 Passionné par l'émergence des nouvelles technologies, je combine aujourd'hui ma maîtrise des outils CAO traditionnels avec la puissance de l'IA Générative et du scripting. <strong>Je recherche un poste en R&D, Bureau d'Études ou Laboratoire d'Innovation</strong> où ma polyvalence (Conception 3D, Fabrication manuelle, Code et IA) sera un atout pour résoudre des défis technologiques inédits.
@@ -365,7 +361,6 @@
         <aside>
             <section>
                 <h2>LIENS</h2>
-
                 <div class="skill-group">
                     <span class="skill-title">Projets Pro <i>(liste non exhaustive)</i></span>
                     <ul class="simple-list sidebar-links">
