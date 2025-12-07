@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Thomas HARDY</title>
+
+    <!-- Description pour Google (environ 160 caractères) -->
+    <meta name="description" content="CV de Thomas HARDY : Ingénieur conception, prototypage R&D et IA. Expert Catia, Comfyui, Impression 3D et développement technologique.">
+    
+    <!-- Auteur -->
+    <meta name="author" content="Thomas HARDY">
     
     <!-- Polices Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +36,7 @@
             
             /* Styles spécifiques V1 */
             --tag-bg: #eef1f3;
-            --tag-text: #444;
+            --tag-text: #d35400;
             --timeline-color: #eee;
         }
 
@@ -231,6 +237,23 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
+
+        /* Style des liens dans la sidebar */
+        .sidebar-links a {
+            text-decoration: none;      /* Enlève le soulignement classique */
+            color: #444;                /* Couleur gris foncé */
+            font-weight: 500;
+            border-bottom: 1px dotted #999; /* Petit soulignement discret */
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: block;             /* Prend toute la largeur pour cliquer facile */
+        }
+
+        .sidebar-links a:hover {
+            color: var(--accent-color); /* Devient orange au survol */
+            border-bottom: 1px solid var(--accent-color);
+        }
+
         /* Petit ajustement pour l'impression (Optionnel) */
         @media print {
             .profile-intro {
@@ -325,22 +348,74 @@
     <header>
         <div class="header-content">
             <h1>Thomas HARDY</h1>
-           <div class="subtitle">Conception - Fabrication - Prototypage - R&D & IA Générative</div>
+           <div class="subtitle">R&D - Conception 3D - Fabrication - Prototypage - IA Générative</div>
         </div>
     </header>
 
     <div class="container">
         <div class="profile-intro">
             <p>
-                <strong>Profil Hybride & Ingénierie Créative.</strong> Fort de 20 ans d'expérience naviguant entre l'exigence de l'aéronautique, la minutie de la haute joaillerie et l'innovation numérique, je suis un expert en conception et prototypage complexe.
+                Naviguant entre l'exigence de l'aéronautique, la minutie de la haute joaillerie et l'innovation numérique, je suis un expert en conception et prototypage moderne. Je pratique également la création graphique et la musique au quotidien.
             </p>
             <p style="margin-top: 10px;">
-                Passionné par l'émergence des nouvelles technologies, je combine aujourd'hui ma maîtrise des outils CAO traditionnels avec la puissance de l'IA Générative et du scripting. <strong>Je recherche un poste en R&D, Bureau d'Études ou Laboratoire d'Innovation</strong> où ma polyvalence (Conception 3D, Fabrication manuelle, Code et IA) sera un atout moteur pour résoudre des défis technologiques inédits.
+                Passionné par l'émergence des nouvelles technologies, je combine aujourd'hui ma maîtrise des outils CAO traditionnels avec la puissance de l'IA Générative et du scripting. <strong>Je recherche un poste en R&D, Bureau d'Études ou Laboratoire d'Innovation</strong> où ma polyvalence (Conception 3D, Fabrication manuelle, Code et IA) sera un atout pour résoudre des défis technologiques inédits.
             </p>
         </div>
         <!-- COLONNE GAUCHE -->
         <aside>
             <section>
+                <h2>LIENS</h2>
+
+                <div class="skill-group">
+                    <span class="skill-title">Projets Pro <i>(liste non exhaustive)</i></span>
+                    <ul class="simple-list sidebar-links">
+                        <!-- Lien: Cartier -->
+                         <li>
+                            <a href="https://www.cartier.com/fr-fr/jewellery/necklaces/panthere-de-cartier/collier-torque-panthere-de-cartier-articule-pave-CRN7424435" target="_blank">
+                                🔗 Cartier -  Collier Panthère
+                            </a>
+                        </li>
+                        <!-- Lien: Nion -->
+                         <li>
+                            <a href="https://www.bfmtv.com/luxe/la-maison-de-haute-jaoillerie-eric-nion-presente-sa-nouvelle-bague-althea-fleur-de-secret_VN-202407080713.html" target="_blank">
+                                🔗 Bijouterie Nion Legrand - Bague Althea
+                            </a>
+                        </li>
+                        <!-- Lien: CEA -->
+                        <li>
+                            <a href="https://www.cea.fr/drf/Pages/Actualites/En-direct-des-labos/2019/intrapix-un-dispositif-de-caracterisation-unique-au-monde-.aspx" target="_blank">
+                                🔗 Article CEA - Projet Intrapix
+                            </a>
+                        </li>  
+
+                        <!-- Lien: Aviation Design Diamond -->
+                        <li>
+                            <a href="https://www.aviation-design.fr/jet-rc-diamond-kit-aviation-design/" target="_blank">
+                                🔗 Aviation Design - Diamond
+                            </a>
+                        </li>
+                        <!-- Lien: Aviation Design Drone -->
+                        <li>
+                            <a href="https://aviation-design-uav.fr/" target="_blank">
+                                🔗 Aviation Design - DRONES
+                            </a>
+                        </li>
+                         <!-- Lien: 3D Concept -->
+                        <li>
+                            <a href="https://www.flickr.com/photos/paspog/2638636646/in/photostream/" target="_blank">
+                                🔗 3DConcept - 104 Aubervilliers
+                            </a>
+                        </li>
+                        <!-- Lien: 3D Concept -->
+                         <li>
+                            <a href="https://www.alamyimages.fr/photo-image-duty-free-shop-a-l-aerogare-2-de-l-aeroport-paris-charles-de-gaulle-roissy-france-27930078.html" target="_blank">
+                                🔗 3DConcept - Boutiques APD
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
                 <h2>Compétences</h2>
                 
                 <div class="skill-group">
@@ -398,6 +473,9 @@
                         <li>Anglais niveau Bac+3</li>
                     </ul>
                 </div>
+
+                
+
             </section>
         </aside>
 
@@ -416,10 +494,10 @@
                     <div class="job-desc">
                         <ul>
                             <li>Exploration approfondie des IA génératives locales (ComfyUI, modèles de diffusion) pour la génération d'images et vidéos.</li>
-                            <li>Développement d'outils et scripts (Python, Web) assisté par LLM (Claude, Gemini) pour automatiser la gestion de données multimédia.</li>
+                            <li>Développement d'outils et scripts (Python, Web) assisté par LLM (Claude, Gemini, LM Studio) pour automatiser la gestion de données multimédia.</li>
                             <li>Veille technique quotidienne sur l'évolution des outils créatifs et leur intégration dans des workflows de production.</li>
                         </ul>
-                    </div>
+                    </div> 
                 </article>
 
                 <!-- 2. AVIATION DESIGN (RETOUR) -->
@@ -433,7 +511,7 @@
                         <ul>
                             <li>Conception intégrale de la maquette numérique d'un drone à voilure fixe (Secteur Militaire) sous Catia V5.</li>
                             <li>Définition des formes aérodynamiques, structure interne et intégration des équipements selon un cahier des charges strict.</li>
-                            <li>Participation aux revues de projet techniques pour validation et ajustements structurels.</li>
+                            <li>Participation aux revues de projet techniques pour validation et ajustements.</li>
                         </ul>
                     </div>
                 </article>
@@ -448,9 +526,9 @@
                     <div class="job-desc">
                         <ul>
                             <li>Industrialisation de pièces de Haute Joaillerie : développement de systèmes de "pré-serti" pour optimiser la productivité sans altérer la finition.</li>
-                            <li>Modélisation complexe avancée sous PTC Creo et Rhino/Grasshopper.</li>
+                            <li>Modélisation complexe sous PTC Creo, Rhino/Grasshopper et SolidWorks.</li>
                             <li>Création de modèles paramétriques fonctionnels (Tables de familles) pour la gestion des déclinaisons métriques.</li>
-                            <li>Automatisation de tâches de conception pour les bureaux d'études.</li>
+                            <li>Automatisation de tâches de conception.</li>
                         </ul>
                     </div>
                 </article>
@@ -465,8 +543,8 @@
                     <div class="job-desc">
                         <ul>
                             <li>Conception et fabrication d'un contrôleur de microscope pour Focus Stacking : CAO (OnShape), Impression 3D, Électronique (Arduino) et programmation C++.</li>
-                            <li>Exploration des workflows 3D en Réalité Virtuelle (Gravity Sketch, Substance Modeler) pour le concept art Science-Fiction.</li>
-                            <li>Auto-formation certifiante sur PTC Creo en vue d'intégrer le secteur du luxe.</li>
+                            <li>Exploration des workflows 3D et Réalité Virtuelle (Gravity Sketch, Substance Modeler) pour le concept art Science-Fiction.</li>
+                            <li>Auto-formation de 1 mois sur PTC Creo en vue d'intégrer le secteur du luxe.</li>
                         </ul>
                     </div>
                 </article>
@@ -507,11 +585,11 @@
                         <h3>Artiste Plasticien</h3>
                         <span class="job-date">Mai 2015 - Sept 2016</span>
                     </div>
-                    <div class="job-company">Freelance</div>
+                    <div class="job-company">Veille Technologique & Auto-formation</div>
                     <div class="job-desc">
                         <ul>
                             <li>Réalisation d'effets spéciaux et d'accessoires pour le « cinéma », animatronique, sculpture traditionnelle, moulage...</li>
-                            <li>Programmation de microcontrôleur en C (Arduino), modélisation 3D, impression 3D.</li>
+                            <li>Programmation de microcontrôleur en C++ (Arduino), modélisation 3D, impression 3D.</li>
                         </ul>
                     </div>
                 </article>
