@@ -158,6 +158,7 @@
             border: 1px solid #ddd;
         }
         
+        
         .software-bonus { font-style: italic; font-size: 0.9rem; margin-top: 5px; color: #666;}
 
         /* ==================== MAIN CONTENT ==================== */
@@ -170,7 +171,7 @@
         .edu-card { margin-bottom: 1.5rem; position: relative; }
 
         .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
-        .job-company { font-style: italic; color: #666; font-weight: 500; margin-bottom: 5px; }
+        .job-company { font-style: italic; color: #666; font-weight: 500; margin-bottom: 5px; font-weight: bold; }
 
         .job-date {
             font-family: var(--font-tech);
@@ -187,7 +188,7 @@
             position: relative; padding-left: 15px; margin-bottom: 4px; color: #444;
         }
         .job-desc ul li::before {
-            content: '•'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold;
+            content: '•'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold,;
         }
 
         .edu-details { 
@@ -435,16 +436,17 @@
                     <span class="skill-title">Logiciels Informatiques</span>
                     <div class="software-text">
                         <!-- CAO / 3D -->
-                        <span>Catia V5</span> <span>PTC Creo</span> <span>SolidWorks</span> <span>OnShape</span>
+                        <span>Catia V5</span> <span>PTC Creo</span> <span>SolidWorks</span> <span>OnShape</span> <span>Fusion360</span>
                         <span>Rhinoceros</span> <span>Grasshopper</span> 
                         <!-- Artistique / VR -->
                         <span>Blender</span> <span>Zbrush</span> <span>Gravity Sketch (VR)</span> <span>Substance Modeler (VR)</span>
                         <!-- Image / IA -->
                         <span>Photoshop</span> <span>Davinci Resolve</span> <span>ComfyUI (IA)</span>
-                    </div>
-                    <div class="software-text" style="margin-top:5px;">
                         <span>Python (Scripting)</span> <span>Office</span>
                     </div>
+                    
+                        
+                    
                     <div class="software-bonus">
                         Veille active IA Générative (LLM, Stable Diffusion), intégration de workflows assistés par IA. Apprentissage rapide de nouveaux logiciels et méthodologies.
                     </div>
@@ -465,7 +467,8 @@
                  <div class="skill-group">
                     <span class="skill-title">Langues</span>
                     <ul class="simple-list">
-                        <li>Anglais niveau Bac+3</li>
+                        <li>Anglais niveau Bac+3 / B1 (CECRL)</li>
+                        
                     </ul>
                 </div>
 
@@ -485,7 +488,7 @@
                         <h3>R&D Intelligence Artificielle & Création Numérique</h3>
                         <span class="job-date">Depuis Mars 2025</span>
                     </div>
-                    <div class="job-company">Veille Technologique & Auto-formation</div>
+                    <div class="job-company">Veille Technologique & Formations</div>
                     <div class="job-desc">
                         <ul>
                             <li>Exploration approfondie des IA génératives locales (ComfyUI, modèles de diffusion) pour la génération d'images et vidéos.</li>
@@ -501,7 +504,7 @@
                         <h3>Concepteur Aéronautique (Prototype Drone)</h3>
                         <span class="job-date">Jan. 2024 – Fev. 2024</span>
                     </div>
-                    <div class="job-company">Société Aviation Design (91)</div>
+                    <div class="job-company">Société <u>Aviation Design</u>  (91)</div>
                     <div class="job-desc">
                         <ul>
                             <li>Conception intégrale de la maquette numérique d'un drone à voilure fixe (Secteur Militaire) sous Catia V5.</li>
@@ -517,7 +520,7 @@
                         <h3>Dessinateur Projeteur Industrialisation</h3>
                         <span class="job-date">Avril 2023 – Nov. 2024</span>
                     </div>
-                    <div class="job-company">Maison Cartier - Joaillerie (Paris)</div>
+                    <div class="job-company">Maison  <u> Cartier  </u>  - Joaillerie (Paris)</div>
                     <div class="job-desc">
                         <ul>
                             <li>Industrialisation de pièces de Haute Joaillerie : développement de systèmes de "pré-serti" pour optimiser la productivité sans altérer la finition.</li>
@@ -549,7 +552,7 @@
                         <h3>Maquettiste 3D, bijoutier, joaillier</h3>
                         <span class="job-date">Mars 2021 – Mars 2022</span>
                     </div>
-                    <div class="job-company">Société Bijouterie Nion Legrand (29)</div>
+                    <div class="job-company">Société  <u> Bijouterie Nion Legrand </u>  (29)</div>
                     <div class="job-desc">
                         <ul>
                             <li>Etude, conception 3D (Grasshopper/Rhino), impression 3D (résine), fonte (métaux précieux), travail à la cheville.</li>
@@ -565,7 +568,7 @@
                         <h3>Dessinateur Projeteur</h3>
                         <span class="job-date">Sept 2016 – Mars 2018</span>
                     </div>
-                    <div class="job-company">Société CEA – Institut de Recherche sur les Lois Fondamentales de l’Univers (91)</div>
+                    <div class="job-company">Société <u>CEA </u>  – Institut de Recherche sur les Lois Fondamentales de l’Univers (91)</div>
                     <div class="job-desc">
                         <ul>
                             <li>Etude, conception 3D et mise en plan 2D d’équipements de mesure pour la recherche fondamentale. Optique, cryogénie, vide...</li>
@@ -594,7 +597,7 @@
                         <h3>Assistant Ingénieur</h3>
                         <span class="job-date">Avril 2009 - Mai 2015</span>
                     </div>
-                    <div class="job-company">Société Aviation Design (91)</div>
+                    <div class="job-company">Société <u> Aviation Design</u>  (91)</div>
                     <div class="job-desc">
                         <ul>
                             <li>Etude et réalisation de prototypes d’aéronefs, de maquettes de soufflerie et de modèles réduits d’avions de chasse.</li>
@@ -609,7 +612,7 @@
                         <h3>Dessinateur Projeteur</h3>
                         <span class="job-date">Sept 2006 – Mars 2009</span>
                     </div>
-                    <div class="job-company">Société 3DConcept (91)</div>
+                    <div class="job-company">Société  <u> 3DConcept </u>  (91)</div>
                     <div class="job-desc">
                         <ul>
                             <li>Conception, fourniture et pose d’ouvrages métalliques (Hôpital Cochin, 104, boutiques APD...)</li>
@@ -671,8 +674,8 @@
             <div class="interest-tags">
                 <!-- Côté Tech & Maker -->
                 <span class="interest-item">🤖 Électronique & Arduino</span>
-                <span class="interest-item">🧠 IA Générative & Workflows</span>
-                <span class="interest-item">🔨 DIY & Restauration Mécanique</span>
+                <span class="interest-item">🧠 IA Générative & Sciences</span>
+                <span class="interest-item">🔨 DIY & Bricolage</span>
                 
                 <!-- Côté Artistique & Précision -->
                 <span class="interest-item">🎨 Sculpture Traditionnelle</span>
@@ -680,7 +683,7 @@
                 <span class="interest-item">🎵 Pratique Musicale & MAO</span>
 
                 <!-- Côté Sport -->
-                 <span class="interest-item">🏃 Course / Entretien Physique</span>
+                 <span class="interest-item">🏃 Course & Entretien Physique</span>
 
             </div>
         </footer>
