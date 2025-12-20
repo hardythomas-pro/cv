@@ -30,7 +30,8 @@
             --font-tech: 'Roboto Mono', monospace; 
 
             --primary-color: #2c3e50; 
-            --accent-color: #d35400; 
+            --accent-color: #d35400;
+            --accent-color-2: #2fff00; 
             --text-color: #333333;
             --page-bg: #ffffff;
             
@@ -191,11 +192,11 @@
             transition: all 0.3s ease; /* La fluidité magique */
         }
 
-        /* 2. Ajoute ce NOUVEAU bloc juste après */
         .job-card:hover .job-company {
-            color: var(--accent-color); /* Devient Orange (ou ta couleur d'accent) */
+            color: var(--accent-color); /* Devient Orange (ou couleur d'accent) */
             font-weight: 700;           /* Devient Gras */
             transform: scale(1.05);     /* Grossit de 5% fluide */
+            text-shadow: rgba(255,128,0,1) 0px 0px 10px;
         }
 
         .job-date {
