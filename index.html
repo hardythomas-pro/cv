@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CV - Thomas HARDY</title>
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEXm5uYLCwtJiYJpAAAAg0lEQVR42gXBIQ7CMBiG4ff/2sAEBDvUdgOOwCSSA85wBzQpGsMNKAkCWZKJim7leaiBTgS+LOC0wKLCUMnrgnLrUOoJYqAnll1SnCZkv1sjVgfE6+Ttvnl8RL0iDMQe1M1nxHbE4lg86ZiKmviEgmUJIcNnEVqswltAdAxc6GpFiZk/reIwDpjB7OcAAAAASUVORK5CYII=" type="image/png">
 
     <!-- Description pour Google -->
     <meta name="description" content="CV Thomas HARDY: Ingénierie et conception mécanique 3D, prototypage, R&D et IA. Expert Catia, Comfyui, Impression 3D et développement technologique.">
@@ -213,6 +215,16 @@
         }
         .job-desc ul li::before {
             content: '•'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold,;
+        }
+
+        /* Désactive la puce uniquement pour le séparateur */
+        .job-item-sep::before {
+            content: none !important;
+        }
+        .job-item-sep {
+            border-bottom: 1px solid var(--timeline-color); /* Ligne fine de 1px */
+            list-style: none;      /* Enlève la puce (le point) */
+            margin: 15px;
         }
 
         .edu-details { 
@@ -544,8 +556,11 @@
                     <div class="job-company">Veille Technologique & Formations</div>
                     <div class="job-desc">
                         <ul>
-                            <li>Exploration approfondie des IA génératives locales (ComfyUI, modèles de diffusion) pour la génération d'images, de vidéos et de modèles 3D.</li>
-                            <li>Développement d'outils et scripts (Python, Web) assisté par LLM (Claude, Gemini, LM Studio) pour automatiser la gestion de données multimédia et la création d'outils.</li>
+                            <li>Développement du GyrOSC: Conception d’une interface gestuelle MIDI pour la MAO (contrôleur inertiel sensible aux accélérations et inclinaisons).</li> <li>Hardware & Code: C++ sur microcontrôleur ESP32 (Arduino), intégration de capteurs de mouvement, écran, boutons et batterie.</li> <li>CAO & Fabrication: Modélisation complète sous Onshape, prototypage en impression 3D, soudure et assemblage en atelier.</li>
+                            <li class="job-item-sep"></li>
+                            <li style="margin-top: 15px;">Installation et utilisation d'outils et modèle d'IA (GitHub & Hugginface)</li>
+                            <li>Exploration approfondie des IA génératives locales (ComfyUI, SD1.5, SDXL, AnimateDiff, Wan, Flux, Zimage, Hunyuan3D...) pour la génération d'images, de vidéos et de modèles 3D.</li>                            
+                            <li>Développement d'outils et scripts (Python, Web) assisté par LLM (LM Studio, Claude, Gemini) pour automatiser la gestion de données multimédia et la création d'outils.</li>
                             <li>Veille technique quotidienne sur l'évolution des outils créatifs et leur intégration dans des workflows de production.</li>
                         </ul>
                     </div> 
@@ -736,7 +751,7 @@
         </main>
     </div>
     <div style="text-align: center; font-size: 0.75rem; color: #bbb; margin-top: 40px; padding-bottom: 20px; font-family: var(--font-tech);">
-        Dernière mise à jour : 20 Décembre 2025
+        Dernière mise à jour : 21 Décembre 2025
     </div>
 
     <!-- SCRIPT ANIMATION SCROLL (Zone milieu écran) -->
