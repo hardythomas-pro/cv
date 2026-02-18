@@ -47,11 +47,13 @@
 
         body {
             font-family: var(--font-body);
-            background-color: var(--page-bg);
+            /*background-color: var(--page-bg);*/
             color: var(--text-color);
             line-height: 1.6;
             font-size: 15px;
             -webkit-font-smoothing: antialiased;
+
+
         }
 
         /* ==================== HEADER ==================== */
@@ -227,6 +229,17 @@
             margin: 15px;
         }
 
+        .job-summary {
+            font-style:  italic;
+            color: #555;
+            margin-bottom: 10px; /* Un peu d'espace avant les détails cachés */
+            margin-left: 15px;
+            font-size: 0.95rem;
+        }
+        .job-summary.is-hidden {
+            display: none;
+        }
+
         .edu-details { 
             font-size: 0.9rem; color: #555; margin-top: 5px; 
             padding-left: 10px; border-left: 2px solid var(--accent-color);
@@ -263,6 +276,93 @@
             font-size: 0.9rem; display: block;             
         }
         .sidebar-links a:hover { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
+
+
+
+
+        /*BTN Détails*/
+        /* --- BOUTON DÉTAILS & ACCORDÉON --- */
+        .job-desc {
+            display: none; /* Caché par défaut */
+        }
+
+        .job-desc.is-open {
+            display: block; /* Visible quand activé */
+            animation: fadeIn 0.5s;
+        }
+
+        #btn-details {
+            background-color:  rgb(238, 238, 238);
+
+            color: rgb(177, 177, 177);
+            
+            border: none;
+            padding: 10px 10px 10px 10px;
+            margin-left: 50px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: var(--font-tech);
+            transition: 0.3s;
+
+            font-weight: bold; /* Plus visible */
+            
+            display: inline-flex; /* Permet d'aligner l'icone et le texte */
+            align-items: center;  /* Centre verticalement */
+            gap: 10px;            /* Espace entre l'oeil et le texte */
+            line-height: 1;       /* Évite que le bouton soit trop haut */
+
+            box-shadow: 0px 2px 7px -0px #696969;
+            
+        }
+        /* Animation active SEULEMENT via JavaScript */
+        #btn-details.animate-breath {
+            animation: glowPulse 2s infinite;
+        }
+        #btn-details:hover { opacity: 0.8; }
+        /* Optionnel : Arrêter l'animation quand on passe la souris dessus */
+        #btn-details:hover {
+            animation: none;
+            transform: scale(1.1);
+            opacity: 1;
+            box-shadow: 0 0 20px 0px var(--accent-color); /* Gros Halo lumineux */
+        }
+        /* Effet "Enfoncé" au clic */
+        #btn-details:active {
+            transform: scale(0.95); /* Réduit le bouton à 95% */
+            transition: 0.25s;       /* Très rapide pour le ressenti physique */
+        }
+
+        /* PETITE ANIMATION D'APPARITION */
+        @keyframes fadeIn {
+            from { opacity: .8; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animation "Appel à l'action" */
+        @keyframes glowPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); /* Couleur accent transparent */
+                
+            }
+            50% {
+                transform: scale(1.05); /* Grossit un peu */
+                box-shadow: 0 0 20px 10px var(--accent-color-2); /* Gros Halo lumineux */
+                color: var(--accent-color);
+                
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); /* Disparition du halo */
+            }
+            
+        }
+
+        .btn-emoji {
+            text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+        }
 
         /* ==================== MOBILE ==================== */
         @media screen and (max-width: 768px) {
@@ -381,7 +481,15 @@
             .interest-item::after { content: " • "; color: #666; }
             .interest-item:last-child::after { content: ""; }
             /* Cacher emojis à l'impression si trop lourd visuellement, sinon laisser */
-        }
+
+            /* DANS LE @MEDIA PRINT */
+            #btn-details { display: none !important; } /* On cache le bouton à l'impression */
+            .job-desc { display: block !important; }   /* On force l'affichage du texte à l'impression */
+        }       
+            
+
+
+
         </style>
 </head>
 <body>
@@ -389,7 +497,7 @@
     <header>
         <div class="header-content">
            
-            <h1>Nicolas</h1>
+            <h1>Thomas HARDY</h1>
            <div class="subtitle">R&D - Conception 3D - Fabrication - Prototypage - IA Générative</div>
         </div>
     </header>
@@ -397,11 +505,16 @@
     <div class="container">
         <div class="profile-intro">
             <p>
-                Naviguant entre la rigueur de l’aéronautique, la minutie de la haute joaillerie et les innovations numériques, je suis expert en conception et prototype industriel. Observateur et astucieux, je mobilise ma culture « maker » pour résoudre concrètement des problèmes d'ingénierie. Je pratique également la création graphique et la musique au quotidien.
-
+                    Issu d’une formation technique en mécanique, en conception de produits industriels et en
+                ingénierie des formes, mon parcours atypique m’a permis d’acquérir de solides compétences dans
+                plusieurs domaines de l’industrie. J’ai travaillé à la fois dans de petites et grandes structures.
             </p>
             <p style="margin-top: 10px;">
-                Passionné par l'émergence des nouvelles technologies, je combine aujourd'hui ma maîtrise des outils CAO traditionnels avec le code et la puissance de l'IA Générative. <strong>Je recherche un poste en R&D, Bureau d'Études ou Laboratoire d'Innovation</strong> où ma polyvalence (Conception 3D, Fabrication manuelle, Code et IA) sera un atout pour relever des défis technologiques inédits.
+                 Je sais
+                être polyvalent et autonome et apprécie le travail en équipe. Mes atouts sont l’écoute, l’observation,
+                l’analyse et la synthèse. J’attache de l’importance à la rigueur et à la qualité de mon travail. A l’aise à
+                la fois en atelier et en bureau d’études, je reste constamment en veille sur les technologies et outils
+                que j’utilise.
             </p>
         </div>
         <!-- COLONNE GAUCHE -->
@@ -409,7 +522,20 @@
             <section>
                 <h2>LIENS</h2>
                 <div class="skill-group">
-                    <span class="skill-title">Projets Pro <i>(liste non exhaustive)</i></span>
+
+                    <span class="skill-title">PortFolio <i> (projets personnels)</i></span>
+                    <ul class="simple-list sidebar-links">
+                        <!-- Lien: Labo 3D -->
+                         <li>
+                            <a href="https://labo3d.org/portfolio/" target="_blank">
+                                🔗 Site Web: Labo3D.org
+                            </a>
+                        </li>             
+                    </ul>
+
+
+
+                    <span style="margin-top: 30px;" class="skill-title">Projets Pro <i>(liste non exhaustive)</i></span>
                     <ul class="simple-list sidebar-links">
                         <!-- Lien: Cartier -->
                          <li>
@@ -518,12 +644,12 @@
                         <span><img class="XNo5Ab" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC5UlEQVR4AaxXA4xdQRSd2u7MfNe24qS2bRtR7b5ujFpR46SI2Ua1bdu2ufckn7Mz7739fya57e7gnPuul/ldTZo0KRkUontAiC0BzveT3JRCfIbgZ+zhDHdwl9laNTkPEPA2yflHkv8+5SPe4G3WxHXr1i1FIHkkXwCajeAtMICVzVefAIgNAZZva0SEaE7+fIyHNgWYwPb+cpXcshLgcPP5CeXBNZKdtP8mC8L39HY3yVnVHdqYQLCoIEEpp+GsQ4cOxaWUk6QQz7EfT79LBH6Q5AD9fJH2P8QJ3tLenEQqUloOUnHBVdD0mmgPBALtMmoB5+Vpr7HjOEWZsv7//18kHA7Xj8ViVdL3SfFauuzIcAVyVmfGYDDYhuW4QqFQTIcNzmSFMxUZMt/YXBUgi/U0FStwM5ROUxEhC9TIVQFySzXCeq3jADfMv8WgwEJmaVFQTjRwbMHhft1hJBKpZ62f1KxZWccBbihwU2d+RDWzuAjzoUaBmww5rVHgHrO8iOyUygNuaPZVY55PthXAR6k84NaYJi5SCosxUJp4fmgUeAAFThpSZIwlfrdUP8GCnG8wROgpW4FIRHt0HOBWm4Wq4XwLwTfBhA9u1qBBgwoIOsOlf+hcbdq0KVFYYjQsfABh/DFgf0JzS5hoc1pqrA1JOQotNs0dj+iOExKiKxWoqibS2rVrV5JSdgpKuYze33YdTqTclHwY4bwuEfyMk70DEbQjkPOa3D2CrzOYe7/PGfFHVIg6aqCsTu9U1EQitOqpjYSs08+l83XwqYCjHckUs29PG1bm0d56TEhuIzbc40UODmCYhocoXXoWv/wHvZwVctG73y4KPAOHe/8WokWGEkLsRTRTykyn/1cOHTq0mIcCf0zkwPY7RESkEBd0QJhiPBT4qzH7JYxm2fxp5qg1HHXdQ4F/acH2kyRP88b/QrpQzm5EZqB9YkT3KLtvcQ/Tjr2hJj6SY+T24z6yXv74iDUXAHnsU9JuBm1tAAAAAElFTkSuQmCC" style="height:26px;width:26px" alt="" data-csiid="vmVFaf-DEPOskdUP6dz2iAE_3" data-atf="1">GitHub</span>
                     </div>
                     <div class="software-bonus">
-                        Apprentissage rapide de nouveaux logiciels et méthodologies. Veille active IA Générative (LLM, Stable Diffusion), intégration de workflows assistés par IA. 
+                        Apprentissage rapide de nouveaux logiciels et méthodologies. Veille active sur les nouveaux procédés liés au prototypage et à l'IA Générative.
                     </div>
                 </div>
 
                 <div class="skill-group">
-                    <span class="skill-title">Mise En Forme Matériaux</span>
+                    <span class="skill-title">Mise En Forme Des Matériaux</span>
                     <ul class="simple-list">
                         <li><strong>Usinage :</strong> Fraiseuse et tour CNC et conventionnelle, LAB, résines, bois, plastique, aluminium. Ajustage en atelier. Impression 3D, découpe laser.</li>
                         <li><strong>Moulage :</strong> Fonderie, Stratification époxy, polyester, acrylique, Silicone, latex, alginate, plâtre.</li>
@@ -546,8 +672,16 @@
 
         <!-- COLONNE DROITE -->
         <main>
-            <section>
-                <h2>Expériences Professionnelles</h2>
+            <section >
+                <h2 style="display: flex; align-items: center; border-bottom: none;">
+                <span style="border-bottom: 3px solid var(--accent-color);">Expériences Professionnelles</span>
+                <button id="btn-details"><span class="btn-emoji">👁️</span> Détails</button>
+            </h2>
+
+                 
+
+                
+                
 
                 <article class="job-card">
                     <div class="job-header">
@@ -555,15 +689,19 @@
                         <span class="job-date">Depuis Mars 2025</span>
                     </div>
                     <div class="job-company">Veille Technologique & Formations</div>
-                    <div class="job-desc">
+                    <p class="job-summary">> Veille technologique active, développement de solutions d'IA générative et prototypage...</p>
+                    <div class="job-desc">      
                         <ul>
-                            <li>Développement du GyrOSC: Conception d’une interface gestuelle MIDI pour la MAO (contrôleur inertiel sensible aux accélérations et inclinaisons).</li> <li>Hardware & Code: C++ sur microcontrôleur ESP32 (Arduino), intégration de capteurs de mouvement, écran, boutons et batterie.</li> <li>CAO & Fabrication: Modélisation complète sous Onshape, prototypage en impression 3D, soudure et assemblage en atelier.</li>
+                            <li>Développement du GyrOSC: Conception d’une interface gestuelle MIDI pour la MAO (contrôleur inertiel sensible aux accélérations et inclinaisons). </li> <li>Hardware & Code: C++ sur microcontrôleur ESP32 (Arduino), intégration de capteurs de mouvement, écran, boutons et batterie.</li> <li>CAO & Fabrication: Modélisation complète sous Onshape, prototypage en impression 3D, soudure et assemblage en atelier.</li>
                             <li class="job-item-sep"></li>
                             <li style="margin-top: 15px;">Installation et utilisation d'outils et modèle d'IA (GitHub & Hugginface)</li>
                             <li>Exploration approfondie des IA génératives locales (ComfyUI, SD1.5, SDXL, AnimateDiff, Wan, Flux, Zimage, Hunyuan3D...) pour la génération d'images, de vidéos et de modèles 3D.</li>                            
                             <li>Développement d'outils et scripts (Python, Web) assisté par LLM (LM Studio, Claude, Gemini) pour automatiser la gestion de données multimédia et la création d'outils.</li>
                             <li>Veille technique quotidienne sur l'évolution des outils créatifs et leur intégration dans des workflows de production.</li>
                         </ul>
+        
+                    
+                        
                     </div> 
                 </article>
 
@@ -573,6 +711,7 @@
                         <span class="job-date">Jan. 2024 – Fev. 2024</span>
                     </div>
                     <div class="job-company">Société <u>Aviation Design</u>  (91)</div>
+                     <p class="job-summary">> Conception numérique intégrale d'un prototype d'aéronef sous Catia V5...</p>
                     <div class="job-desc">
                         <ul>
                             <li>Conception intégrale de la maquette numérique d'un drone à voilure fixe (Secteur Militaire) sous Catia V5.</li>
@@ -588,6 +727,7 @@
                         <span class="job-date">Avril 2023 – Nov. 2024</span>
                     </div>
                     <div class="job-company">Maison  <u> Cartier  </u>  - Joaillerie (Paris)</div>
+                    <p class="job-summary">> Industrialisation de pièces de Haute Joaillerie & Optimisation de production...</p>
                     <div class="job-desc">
                         <ul>
                             <li>Industrialisation de pièces de Haute Joaillerie : développement de systèmes de "pré-serti" pour optimiser la productivité sans altérer la finition.</li>
@@ -604,9 +744,10 @@
                         <span class="job-date">Avril 2022 – Avril 2023</span>
                     </div>
                     <div class="job-company">Projets Personnels & Montée en compétence</div>
+                     <p class="job-summary">> Conception complète (Mécanique, Électronique, Code) d'outils de précision et exploration VR...</p>
                     <div class="job-desc">
                         <ul>
-                            <li>Conception et fabrication d'un contrôleur de microscope pour Focus Stacking : CAO (OnShape), Impression 3D, Électronique (Arduino) et programmation C++.</li>
+                            <li>Conception et fabrication d'un contrôleur de microscope pour Focus Stacking : CAO (OnShape), Impression 3D, Électronique (Arduino) et programmation C++. </li>
                             <li>Exploration des workflows 3D et Réalité Virtuelle (Gravity Sketch, Substance Modeler) pour le concept art Science-Fiction.</li>
                             <li>Auto-formation de 1 mois sur PTC Creo en vue d'intégrer le secteur du luxe.</li>
                         </ul>
@@ -619,6 +760,7 @@
                         <span class="job-date">Mars 2021 – Mars 2022</span>
                     </div>
                     <div class="job-company">Société  <u> Bijouterie Nion Legrand </u>  (29)</div>
+                     <p class="job-summary">> Conception 3D paramétrique et fabrication en atelier de bijoux sur mesure...</p>
                     <div class="job-desc">
                         <ul>
                             <li>Etude, conception 3D (Grasshopper/Rhino), impression 3D (résine), fonte (métaux précieux), travail à la cheville.</li>
@@ -635,11 +777,12 @@
                         <span class="job-date">Sept 2016 – Mars 2018</span>
                     </div>
                     <div class="job-company">Société <u>CEA </u>  – Institut de Recherche sur les Lois Fondamentales de l’Univers (91)</div>
+                     <p class="job-summary">> Conception d'équipements scientifiques de pointe pour la recherche fondamentale...</p>
                     <div class="job-desc">
                         <ul>
-                            <li>Etude, conception 3D et mise en plan 2D d’équipements de mesure pour la recherche fondamentale. Optique, cryogénie, vide...</li>
+                            <li>Etude, conception 3D et mise en plan 2D d’équipements de mesure pour la recherche fondamentale. Optique, cryogénie, vide... </li>
                             <li>Optimisation du temps de modification et de mise à jour des modèles 3D et plans 2D, modélisation procédurale.</li>
-                            <li>Génération de Macros, Power copy et utilisation des publications (CATIA V5).</li>
+                            <li>Génération de Macros, Power copy et utilisation des publications (CATIA V5). </li>
                         </ul>
                     </div>
                 </article>
@@ -650,9 +793,10 @@
                         <span class="job-date">Mai 2015 - Sept 2016</span>
                     </div>
                     <div class="job-company">Veille Technologique & Auto-formation</div>
+                     <p class="job-summary">> Création technique et artistique d'effets spéciaux et animatroniques...</p>
                     <div class="job-desc">
                         <ul>
-                            <li>Réalisation d'effets spéciaux et d'accessoires pour le « cinéma », animatronique, sculpture traditionnelle, moulage...</li>
+                            <li>Réalisation d'effets spéciaux et d'accessoires pour le « cinéma », animatronique, sculpture traditionnelle, moulage... </li>
                             <li>Programmation de microcontrôleur en C++ (Arduino), modélisation 3D, impression 3D.</li>
                         </ul>
                     </div>
@@ -664,10 +808,11 @@
                         <span class="job-date">Avril 2009 - Mai 2015</span>
                     </div>
                     <div class="job-company">Société <u> Aviation Design</u>  (91)</div>
+                     <p class="job-summary">> Gestion de projets de prototypes aéronautiques ...</p>
                     <div class="job-desc">
                         <ul>
                             <li>Etude et réalisation de prototypes d’aéronefs, de maquettes de soufflerie et de modèles réduits d’avions de chasse.</li>
-                            <li>Gestion de projets pour le secteur militaire et spatial, conception et fabrication sur commande numérique (CATIA V5 - CFAO) de moules et outillages, stratification des matériaux composites, peinture, travail de carrosserie, assemblage des aéronefs, livraison client...</li>
+                            <li>Gestion de projets pour le secteur militaire et spatial, conception et fabrication sur commande numérique (CATIA V5 - CFAO) de moules et outillages, stratification des matériaux composites, peinture, travail de carrosserie, assemblage des aéronefs, livraison client... </li>
                             <li>Amélioration de la qualité des outillages et réduction du temps de fabrication.</li>
                         </ul>
                     </div>
@@ -679,6 +824,7 @@
                         <span class="job-date">Sept 2006 – Mars 2009</span>
                     </div>
                     <div class="job-company">Société  <u> 3DConcept </u>  (91)</div>
+                     <p class="job-summary">> Conception, fabrication et pose sur chantiers d'ouvrages métalliques et architecturaux...</p>
                     <div class="job-desc">
                         <ul>
                             <li>Conception, fourniture et pose d’ouvrages métalliques (Hôpital Cochin, 104, boutiques APD...)</li>
@@ -739,24 +885,53 @@
             <h2>Centres d'intérêt & Passions</h2>
             <div class="interest-tags">
 
-                <span class="interest-item">🤖 Électronique & Arduino</span>
-                <span class="interest-item">🧠 IA Générative & Sciences</span>
+                <span class="interest-item">🎨 Sculpture & Modelage</span>
                 <span class="interest-item">🔨 DIY & Bricolage</span>
-                <span class="interest-item">🎨 Sculpture Traditionnelle</span>
+                <span class="interest-item">🤖 Électronique & Arduino</span>
+                <span class="interest-item">🧠 IA Générative & Sciences</span> 
                 <span class="interest-item">📷 Macrophotographie & Photogrammétrie</span>
                 <span class="interest-item">🎵 Pratique Musicale & MAO</span>
-                 <span class="interest-item">🏃 Course & Entretien Physique</span>
+                <span class="interest-item">🏃 Course & Entretien Physique</span>
 
             </div>
         </footer>
         </main>
     </div>
-    <div style="text-align: center; font-size: 0.75rem; color: #bbb; margin-top: 40px; padding-bottom: 20px; font-family: var(--font-tech);">
-        Dernière mise à jour : 21 Décembre 2025
+    <div style="text-align: center; font-size: 0.75rem; color: #b9b9b9; margin-top: 40px; padding-bottom: 20px; font-family: var(--font-tech);">
+        Dernière mise à jour : 16 février 2026
     </div>
 
     <!-- SCRIPT ANIMATION SCROLL (Zone milieu écran) -->
     <script>
+
+        // GESTION DU BOUTON DÉTAILS
+        const btnDetails = document.getElementById('btn-details');
+
+            // On lance l'animation au démarrage
+        btnDetails.classList.add('animate-breath');
+
+        btnDetails.addEventListener('click', () => {
+                // --- NOUVEAU : On supprime l'animation au premier clic ---
+            btnDetails.classList.remove('animate-breath');
+            const descriptions = document.querySelectorAll('.job-desc');
+            const summaries = document.querySelectorAll('.job-summary'); // Sélectionne les résumés
+
+            // Bascule l'affichage des détails (Ouvre/Ferme)
+            descriptions.forEach(desc => desc.classList.toggle('is-open'));
+
+            // Bascule l'affichage des résumés (Cache/Montre)
+            summaries.forEach(sum => sum.classList.toggle('is-hidden'));
+
+            // Change le bouton
+            if (btnDetails.innerText.includes("Détails")) {
+                btnDetails.innerHTML = '<span class="btn-emoji">❌</span> Réduire';
+            } else {
+                btnDetails.innerHTML = '<span class="btn-emoji">👁️</span> Détails';
+            }
+        });
+
+
+
         // On active le script UNIQUEMENT si l'appareil ne gère pas le survol (donc Tactile)
         // OU s'il est vraiment petit (sécurité pour vieux téléphones)
         if (window.matchMedia("(hover: none), (max-width: 768px)").matches) {
@@ -781,6 +956,12 @@
                 observer.observe(el);
             });
         }
+
+
+        
+
+        
+
     </script>
 
 </body>
