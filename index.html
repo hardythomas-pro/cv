@@ -418,7 +418,10 @@
             }
             .subtitle { display: none; } 
 
-            .contactimg{display:block;}
+            
+            
+
+            
             section{ margin-bottom: 20px;}
 
             
@@ -451,12 +454,14 @@
             .job-desc { display: block !important; } /* Force l'affichage des détails */
 
             /* --- CONTACT (IMAGE) PRINT --- */
-            .contact-img {
-                display: block;
+            .contact-img h2{
+                display: block !important;
                 max-width: 100%;
                 border: none;
                 margin-bottom: 5px;
             }
+
+            .contactimg{display:block !important;}
 
             /* --- LOGICIELS (EN COLONNE AVEC ICÔNES) --- */
             .software-text {
@@ -512,7 +517,7 @@
             .interest-item::after {  color: #666; }
             .interest-item:last-child::after { content: ""; }
 
-            body > div:last-of-type { margin-top: 10px !important; padding-bottom: 0 !important; }
+            body > div:last-of-type { font-size: 6px !important; margin-top: 10px !important; padding-bottom: 0 !important; }
         }       
     </style>
 </head>
