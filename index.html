@@ -24,7 +24,7 @@
             /* --- IMAGE & CADRAGE --- */
             --bg-image-url: url('fond.jpg'); 
             --bg-position: center 45%; 
-            --header-height: 450px; 
+            --header-height: clamp(300px, 40vh, 450px); 
 
             /* --- TYPOGRAPHIE & COULEURS --- */
             --font-title: 'Montserrat', sans-serif; 
@@ -47,13 +47,11 @@
 
         body {
             font-family: var(--font-body);
-            /*background-color: var(--page-bg);*/
             color: var(--text-color);
             line-height: 1.6;
             font-size: 15px;
             -webkit-font-smoothing: antialiased;
-
-
+            background-color: var(--page-bg);
         }
 
         /* ==================== HEADER ==================== */
@@ -70,6 +68,7 @@
             background-size: cover;
             background-position: var(--bg-position);
             background-repeat: no-repeat;
+            padding: 0 1rem;
         }
 
         header::after {
@@ -83,34 +82,42 @@
         }
 
         .header-content {
-            position: relative; z-index: 2; margin-top: 40px;
+            position: relative; z-index: 2; margin-top: clamp(20px, 5vh, 40px);
             text-shadow: 0 2px 10px rgb(0, 0, 0);
+            width: 100%;
         }
 
         h1 {
             font-family: var(--font-title);
-            font-size: 3.5rem; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; margin-bottom: 0.2rem;
+            /* Utilisation de clamp pour un redimensionnement parfait du titre */
+            font-size: clamp(2rem, 5vw, 3.5rem); 
+            text-transform: uppercase; 
+            font-weight: 800; 
+            letter-spacing: 2px; 
+            margin-bottom: 0.5rem;
         }
 
         .subtitle {
             font-family: var(--font-tech);
-            font-size: 1.2rem;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
             background-color: var(--accent-color);
-            padding: 5px 15px;
+            padding: 8px 15px;
             display: inline-block;
             border-radius: 4px;
             font-weight: 500;
+            max-width: 90%;
+            word-wrap: break-word;
         }
 
         /* ==================== CONTAINER ==================== */
         .container {
-            max-width: 1150px;
+            max-width: 1200px;
+            width: 92vw;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2rem 0;
             display: grid;
-            grid-template-columns: 32% 64%; 
-            column-gap: 4%;  
-            row-gap: 25px;   
+            grid-template-columns: minmax(280px, 1fr) 2.5fr; /* Colonnes proportionnelles et fluides */
+            gap: 3rem;   
             position: relative; z-index: 3;
         }
 
@@ -141,6 +148,16 @@
             color: var(--primary-color); display: block;
         }
 
+        /* Contact Image Anti-Spam */
+        .contact-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: block;
+            margin-bottom: 5px;
+        }
+
         ul.simple-list { list-style: none; }
         ul.simple-list li {
             margin-bottom: 0.3rem;
@@ -151,33 +168,36 @@
         }
         ul.simple-list li:hover { border-left: 3px solid var(--accent-color); }
 
+        .software-text {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
         .software-text span, .interest-list span, .interest-tags span {
             display: inline-flex;
             background: var(--tag-bg);
             color: var(--tag-text);
-            padding: 2px 8px;
+            padding: 4px 8px;
             border-radius: 4px;
             font-size: 0.85rem;
-            margin: 0 4px 4px 0;
             font-family: var(--font-tech);
             border: 1px solid #ddd;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         
-        
-        .software-bonus { font-style: italic; font-size: 0.9rem; margin-top: 5px; color: #666;}
+        .software-bonus { font-style: italic; font-size: 0.9rem; margin-top: 10px; color: #666;}
 
         /* ==================== MAIN CONTENT ==================== */
         main {
             border-left: 1px solid var(--timeline-color);
-            padding-left: 20px;
+            padding-left: clamp(15px, 3vw, 30px);
         }
 
-        .job-card { margin-bottom: 2rem; position: relative; }
+        .job-card { margin-bottom: 2.5rem; position: relative; }
         .edu-card { margin-bottom: 1.5rem; position: relative; }
 
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; }
 
         .job-company { 
             font-style: italic; 
@@ -187,16 +207,16 @@
             margin-top: 4px;
             
             /* --- POUR L'ANIMATION --- */
-            display: block;            /* Nécessaire pour la transformation */
-            transform-origin: left;    /* Le texte grandit vers la droite */
-            transition: all 0.3s ease; /* fluidité */
+            display: block;            
+            transform-origin: left;    
+            transition: all 0.3s ease; 
         }
         
         @media (hover: hover) {
             .job-card:hover .job-company {
-                color:rgb(221, 118, 0) ; /* Devient couleur d'accent */
-                font-weight: 700;           /* Devient + Gros */
-                transform: scale(1.05);     /* Grossit de 5% */
+                color: rgb(221, 118, 0); 
+                font-weight: 700;           
+                transform: scale(1.02);     
                 text-shadow: rgb(121, 121, 121) 0px 0px 30px;
             }
         }
@@ -207,38 +227,35 @@
             color: var(--accent-color);
             font-weight: bold;
             background: #f9f9f9;
-            padding: 2px 6px;
+            padding: 4px 8px;
             border: 1px solid #eee;
+            white-space: nowrap;
         }
 
         .job-desc ul { list-style: none; margin-top: 8px; }
         .job-desc ul li {
-            position: relative; padding-left: 15px; margin-bottom: 4px; color: #444;
+            position: relative; padding-left: 15px; margin-bottom: 6px; color: #444;
         }
         .job-desc ul li::before {
-            content: '•'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold,;
+            content: '•'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold;
         }
 
         /* Désactive la puce uniquement pour le séparateur */
-        .job-item-sep::before {
-            content: none !important;
-        }
+        .job-item-sep::before { content: none !important; }
         .job-item-sep {
-            border-bottom: 1px solid var(--timeline-color); /* Ligne fine de 1px */
-            list-style: none;      /* Enlève la puce (le point) */
+            border-bottom: 1px solid var(--timeline-color); 
+            list-style: none;      
             margin: 15px;
         }
 
         .job-summary {
-            font-style:  italic;
+            font-style: italic;
             color: #555;
-            margin-bottom: 10px; /* Un peu d'espace avant les détails cachés */
+            margin-bottom: 10px; 
             margin-left: 15px;
             font-size: 0.95rem;
         }
-        .job-summary.is-hidden {
-            display: none;
-        }
+        .job-summary.is-hidden { display: none; }
 
         .edu-details { 
             font-size: 0.9rem; color: #555; margin-top: 5px; 
@@ -249,20 +266,20 @@
         .footer-interests {
             grid-column: 1 / -1;
             background: #f9f9f9;
-            padding: 20px;
+            padding: 2rem;
             border-radius: 8px;
-            margin-top: 30px;
+            margin-top: 2rem;
             text-align: center;
             border-top: none;
         }
-        .interest-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+        .interest-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
 
         /* ==================== EXTRA BLOCKS ==================== */
         .profile-intro {
             grid-column: 1 / -1; 
             background-color: #fcfcfc; 
             border-left: 5px solid var(--accent-color); 
-            padding: 20px;
+            padding: 1.5rem;
             margin-bottom: 0;
             font-size: 1.05rem; 
             color: #444;
@@ -277,226 +294,232 @@
         }
         .sidebar-links a:hover { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
 
-
-
-
-        /*BTN Détails*/
         /* --- BOUTON DÉTAILS & ACCORDÉON --- */
-        .job-desc {
-            display: none; /* Caché par défaut */
-        }
+        .job-desc { display: none; }
+        .job-desc.is-open { display: block; animation: fadeIn 0.5s; }
 
-        .job-desc.is-open {
-            display: block; /* Visible quand activé */
-            animation: fadeIn 0.5s;
+        .header-title-row {
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: none;
         }
 
         #btn-details {
-            background-color:  rgb(238, 238, 238);
-
+            background-color: rgb(238, 238, 238);
             color: rgb(177, 177, 177);
-            
             border: none;
-            padding: 10px 10px 10px 10px;
-            margin-left: 50px;
+            padding: 8px 12px;
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
             font-family: var(--font-tech);
             transition: 0.3s;
-
-            font-weight: bold; /* Plus visible */
-            
-            display: inline-flex; /* Permet d'aligner l'icone et le texte */
-            align-items: center;  /* Centre verticalement */
-            gap: 10px;            /* Espace entre l'oeil et le texte */
-            line-height: 1;       /* Évite que le bouton soit trop haut */
-
+            font-weight: bold; 
+            display: inline-flex; 
+            align-items: center;  
+            gap: 8px;            
+            line-height: 1;       
             box-shadow: 0px 2px 7px -0px #696969;
-            
         }
-        /* Animation active SEULEMENT via JavaScript */
-        #btn-details.animate-breath {
-            animation: glowPulse 2s infinite;
-        }
-        #btn-details:hover { opacity: 0.8; }
-        /* Optionnel : Arrêter l'animation quand on passe la souris dessus */
+        
+        #btn-details.animate-breath { animation: glowPulse 2s infinite; }
         #btn-details:hover {
             animation: none;
-            transform: scale(1.1);
+            transform: scale(1.05);
             opacity: 1;
-            box-shadow: 0 0 20px 0px var(--accent-color); /* Gros Halo lumineux */
+            color: var(--accent-color);
+            box-shadow: 0 0 15px 0px var(--accent-color); 
         }
-        /* Effet "Enfoncé" au clic */
-        #btn-details:active {
-            transform: scale(0.95); /* Réduit le bouton à 95% */
-            transition: 0.25s;       /* Très rapide pour le ressenti physique */
-        }
+        #btn-details:active { transform: scale(0.95); transition: 0.25s; }
 
-        /* PETITE ANIMATION D'APPARITION */
         @keyframes fadeIn {
             from { opacity: .8; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Animation "Appel à l'action" */
         @keyframes glowPulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); /* Couleur accent transparent */
-                
-            }
-            50% {
-                transform: scale(1.05); /* Grossit un peu */
-                box-shadow: 0 0 20px 5px var(--accent-color-2); /* Gros Halo lumineux */
-                color: var(--accent-color);
-                
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); /* Disparition du halo */
-            }
-            
+            0% { transform: scale(1); box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px 5px var(--accent-color-2); color: var(--accent-color); }
+            100% { transform: scale(1); box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); }
         }
 
-        .btn-emoji {
-            text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
-        }
+        .btn-emoji { text-shadow: 0px 0px 2px rgba(0, 0, 0, 1); }
 
-        /* ==================== MOBILE ==================== */
-        @media screen and (max-width: 768px) {
-            .container { grid-template-columns: 1fr; padding: 10px; gap: 20px; }
+        .contactimg{display: none;}
+        
+
+
+        /* ==================== RESPONSIVE (MOBILES & TABLETTES) ==================== */
+        @media screen and (max-width: 850px) {
+            .container { 
+                grid-template-columns: 1fr; 
+                gap: 2rem; 
+                width: 95vw; 
+                padding: 1rem 0;
+            }
             main { border-left: none; padding-left: 0; }
-            h1 { font-size: 2.2rem; }
-            .subtitle { font-size: 1rem; }
-            :root { --header-height: 280px; }
-            .header-content { margin-top: 20px; }
+            .profile-intro { border-left-width: 3px; padding: 1rem; font-size: 1rem; }
             
-            /* Animation Mobile (Au scroll via le script) */
+            .header-title-row { flex-direction: column; align-items: flex-start; }
+            #btn-details { margin-left: 0; align-self: stretch; justify-content: center; padding: 12px; }
+
             .job-card.is-visible .job-company {
                 color: var(--accent-color);
                 font-weight: 700;
-                transform: scale(1.05);
+                transform: scale(1.02);
                 text-shadow: rgb(121, 121, 121) 0px 0px 30px;
             }
         }
 
         /* ==================== PRINT (IMPRESSION PDF) ==================== */
         @media print {
-            @page { size: A4; margin: 0.5cm; } /* Marges minimales */
+            @page { size: A4; margin: 0.5cm; }
 
             body { 
-                font-size: 9pt; /* Police petite pour tout caser */
-                line-height: 1.15; 
+                font-size: 8pt; 
+                line-height: 1.2; 
                 background: white; 
                 color: black;
                 -webkit-print-color-adjust: exact;
             }
 
+            body > div:last-of-type { 
+                position: fixed !important; 
+                bottom: 0 !important; 
+                width: 100%; 
+                margin: 0 !important; 
+                padding-bottom: 10px !important; 
+            }
+
             /* --- CACHER ÉLÉMENTS WEB --- */
             .profile-intro, 
-            .header-content h1 + div, /* Cache sous-titre coloré par défaut */
+            .header-content h1 + div,
             header::before, header::after, 
-            aside h2:first-of-type, /* Cache titre LIENS */
-            aside .skill-group:has(.sidebar-links) /* Cache bloc LIENS (support moderne) */
+            aside h2:first-of-type, 
+            aside .skill-group:has(.sidebar-links),
+            #btn-details 
             { display: none !important; }
-
-            /* Si le navigateur est vieux et ne comprend pas :has */
-            aside h2:first-child, aside .skill-group:first-of-type { display: none !important; }
 
             /* --- HEADER COMPACT --- */
             header {
                 height: auto; background: none !important; 
                 display: block; text-align: left;
-                padding-bottom: 5px; margin-bottom: 10px; border-bottom: 2px solid black;
+                padding: 0; margin-bottom: 10px; border-bottom: 2px solid black;
             }
             .header-content { margin-top: 0; text-shadow: none; color: black; display: flex; justify-content: space-between; align-items: baseline;}
-            h1 { font-size: 16pt; color: black; margin: 0; letter-spacing: 0; }
+            h1 { font-size: 18pt; color: black; margin: 0; letter-spacing: 0; }
             
-            /* On recréer un sous-titre simple pour l'impression */
             .header-content::after {
                 content: "R&D - Conception - Fabrication - Prototypage - IA";
                 font-size: 10pt; font-weight: bold; color: #444;
             }
-            .subtitle { display: none; } /* On cache le bouton orange */
+            .subtitle { display: none; } 
 
-            /* --- LAYOUT --- */
+            .contactimg{display:block;}
+            section{ margin-bottom: 20px;}
+
+            
+
+            /* --- LAYOUT PRINT --- */
             .container {
                 display: grid; 
-                grid-template-columns: 28% 70%; /* Colonne droite plus large pour texte long */
-                gap: 15px; padding: 0; margin: 0; width: 100%; max-width: 100%;
+                grid-template-columns: 30% 67%; /* Répartition optimale pour impression */
+                gap: 3%; padding: 0; margin: 0; width: 100%; max-width: 100%;
             }
             main { border-left: none; padding-left: 0; }
 
             /* --- TITRES --- */
             h2 { 
-                font-size: 11pt; border-bottom: 1px solid black; 
+                font-size: 15pt; border-bottom: 1px solid black; 
                 margin-bottom: 5px; margin-top: 0; padding-bottom: 0; color: black;
-                page-break-after: avoid;
+                page-break-after: avoid; border-bottom: 3px solid var(--accent-color);
+
+
             }
             h3 { font-size: 10pt; margin-bottom: 0; color: black; margin-top: 0; display: inline-block;}
 
-            /* --- COMPACTAGE BLOCS --- */
-            .skill-group { margin-bottom: 5px; break-inside: avoid; }
-            .job-card { margin-bottom: 8px; break-inside: avoid; }
-            .edu-card { margin-bottom: 4px; break-inside: avoid; }
+            .skill-title {font-size: 12pt; }
+            ul.simple-list li {font-size: 8pt;  }
 
-            /* --- LOGICIELS (Tags deviennent texte) --- */
-            .software-text span {
-                background: none; border: none; padding: 0; margin: 0; 
-                display: inline; color: black; font-size: 8.5pt;
+            /* --- BLOCS & SAUTS DE PAGE --- */
+            .skill-group { margin-bottom: 8px; page-break-inside: avoid; }
+            .job-card { margin-bottom: 8px; page-break-inside: avoid; }
+            .edu-card { margin-bottom: 8px; page-break-inside: avoid; }
+            .job-desc { display: block !important; } /* Force l'affichage des détails */
+
+            /* --- CONTACT (IMAGE) PRINT --- */
+            .contact-img {
+                display: block;
+                max-width: 100%;
+                border: none;
+                margin-bottom: 5px;
             }
-            .software-text span::after { content: ", "; }
-            .software-text span:last-child::after { content: ""; }
-            .software-bonus { display: none; }
+
+            /* --- LOGICIELS (EN COLONNE AVEC ICÔNES) --- */
+            .software-text {
+                display: flex;
+                flex-direction: column; /* Un par ligne */
+                gap: 4px;
+            }
+            .software-text span {
+                display: flex !important; 
+                align-items: center;
+                background: none; border: none; padding: 0; margin: 0; 
+                color: black; font-size: 10pt;
+                page-break-inside: avoid;
+            }
+            .software-text span img {
+                width: 16px !important; height: 16px !important; margin-right: 6px; display: block;
+            }
+            .software-bonus { font-size: 8pt; }
 
             /* --- LISTES & TEXTES --- */
             ul.simple-list li { border: none; padding-left: 0; margin-bottom: 0; }
             .job-desc ul { margin-top: 1px; }
             .job-desc ul li { 
-                margin-bottom: 1px; padding-left: 8px; font-size: 8.5pt; line-height: 1.1;
+                margin-bottom: 1px; padding-left: 8px; font-size: 8.5pt; line-height: 1.15;
             }
             .job-desc ul li::before { content: '-'; position: static; margin-right: 3px; color: black; }
             
             .job-date { float: right; border: none; background: none; color: black; padding: 0; font-size: 9pt; }
             .job-company { display: block; margin-bottom: 1px; font-size: 9pt; color: #444; }
+            .job-summary{display: none;}
 
             /* --- DIPLOMES --- */
-            .edu-details { margin-top: 0; padding-left: 5px; border-left: 1px solid #999; font-size: 8pt; }
+            .edu-details { margin-top: 0; padding-left: 5px;  font-size: 8pt; }
+
+            .job-item-sep{display: none;}
 
             /* --- SIMPLIFICATION INTÉRÊTS --- */
             .footer-interests {
                 padding: 5px 0; margin-top: 5px; background: none; 
-                border-top: 1px solid black; text-align: left;
-                display: flex; align-items: baseline;
+                 text-align: left;
+                display: block; align-items: baseline;
+               
             }
             .footer-interests h2 { 
-                border: none; font-size: 10pt; margin-right: 10px; width: auto; 
+                border: none; font-size: 15pt; margin-right: 10px; width: auto; border-bottom: 3px solid var(--accent-color);
             }
-            .interest-tags { display: inline; }
+            .interest-tags {  display: flex;
+                flex-direction: column; gap: 4px;align-items: flex-start;}
             .interest-item {
-                background: none; border: none; padding: 0; margin: 0; color: black; font-size: 9pt; display: inline;
+               background: none; border: none; padding: 0; margin:0; color: black; font-size: 9pt; display: inline;
             }
-            .interest-item::after { content: " • "; color: #666; }
+            .interest-tags span {margin-left: 20px; font-size: 8pt;}
+            .interest-item::after {  color: #666; }
             .interest-item:last-child::after { content: ""; }
-            /* Cacher emojis à l'impression si trop lourd visuellement, sinon laisser */
 
-            /* DANS LE @MEDIA PRINT */
-            #btn-details { display: none !important; } /* On cache le bouton à l'impression */
-            .job-desc { display: block !important; }   /* On force l'affichage du texte à l'impression */
+            body > div:last-of-type { margin-top: 10px !important; padding-bottom: 0 !important; }
         }       
-            
-
-
-
-        </style>
+    </style>
 </head>
 <body>
 
     <header>
         <div class="header-content">
-           
             <h1>Thomas HARDY</h1>
            <div class="subtitle">R&D - Conception 3D - Fabrication - Prototypage - IA Générative</div>
         </div>
@@ -505,27 +528,34 @@
     <div class="container">
         <div class="profile-intro">
             <p>
-                    Issu d’une formation technique en mécanique, en conception de produits industriels et en
+                Issu d’une formation technique en mécanique, en conception de produits industriels et en
                 ingénierie des formes, mon parcours atypique m’a permis d’acquérir de solides compétences dans
                 plusieurs domaines de l’industrie. J’ai travaillé à la fois dans de petites et grandes structures.
             </p>
             <p style="margin-top: 10px;">
-                 Je sais
-                être polyvalent et autonome et apprécie le travail en équipe. Mes atouts sont l’écoute, l’observation,
+                Je sais être polyvalent et autonome et apprécie le travail en équipe. Mes atouts sont l’écoute, l’observation,
                 l’analyse et la synthèse. J’attache de l’importance à la rigueur et à la qualité de mon travail. A l’aise à
                 la fois en atelier et en bureau d’études, je reste constamment en veille sur les technologies et outils
                 que j’utilise.
             </p>
         </div>
+
         <!-- COLONNE GAUCHE -->
         <aside>
+            <!-- NOUVELLE SECTION CONTACT (IMAGE) -->
+            <section class="contactimg">
+                <h2>CONTACT</h2>
+                <div class="skill-group">
+                    <!-- Remplace 'contact.png' par le nom de ton image -->
+                    <img src="tcatnoc.png" alt="Email et Téléphone" class="contact-img">
+                </div>
+            </section>
+
             <section>
                 <h2>LIENS</h2>
                 <div class="skill-group">
-
-                    <span class="skill-title">PortFolio <i> (projets personnels)</i></span>
+                    <span class="skill-title">PortFolio <i>(projets personnels)</i></span>
                     <ul class="simple-list sidebar-links">
-                        <!-- Lien: Labo 3D -->
                          <li>
                             <a href="https://labo3d.org" target="_blank">
                                 🔗 Site Web: Labo3D.org <br> Actuellement en maintenance 
@@ -533,48 +563,38 @@
                         </li>             
                     </ul>
 
-
-
                     <span style="margin-top: 30px;" class="skill-title">Projets Pro <i>(liste non exhaustive)</i></span>
                     <ul class="simple-list sidebar-links">
-                        <!-- Lien: Cartier -->
                          <li>
                             <a href="https://www.cartier.com/fr-fr/jewellery/necklaces/panthere-de-cartier/collier-torque-panthere-de-cartier-articule-pave-CRN7424435" target="_blank">
                                 🔗 Cartier -  Collier Panthère
                             </a>
                         </li>
-                        <!-- Lien: Nion -->
                          <li>
                             <a href="https://www.bfmtv.com/luxe/la-maison-de-haute-jaoillerie-eric-nion-presente-sa-nouvelle-bague-althea-fleur-de-secret_VN-202407080713.html" target="_blank">
                                 🔗 Bijouterie Nion Legrand - Bague Althea
                             </a>
                         </li>
-                        <!-- Lien: CEA -->
                         <li>
                             <a href="https://www.cea.fr/drf/Pages/Actualites/En-direct-des-labos/2019/intrapix-un-dispositif-de-caracterisation-unique-au-monde-.aspx" target="_blank">
                                 🔗 Article CEA - Projet Intrapix
                             </a>
                         </li>  
-
-                        <!-- Lien: Aviation Design Diamond -->
                         <li>
                             <a href="https://www.aviation-design.fr/jet-rc-diamond-kit-aviation-design/" target="_blank">
                                 🔗 Aviation Design - Diamond
                             </a>
                         </li>
-                        <!-- Lien: Aviation Design Drone -->
                         <li>
                             <a href="https://aviation-design-uav.fr/" target="_blank">
                                 🔗 Aviation Design - DRONES
                             </a>
                         </li>
-                         <!-- Lien: 3D Concept -->
                         <li>
                             <a href="https://www.flickr.com/photos/paspog/2638636646/in/photostream/" target="_blank">
                                 🔗 3DConcept - 104 Aubervilliers
                             </a>
                         </li>
-                        <!-- Lien: 3D Concept -->
                          <li>
                             <a href="https://www.alamyimages.fr/photo-image-duty-free-shop-a-l-aerogare-2-de-l-aeroport-paris-charles-de-gaulle-roissy-france-27930078.html" target="_blank">
                                 🔗 3DConcept - Boutiques APD
@@ -606,7 +626,7 @@
                 <div class="skill-group">
                     <span class="skill-title">Maitrise Logiciels Informatiques</span>
                     <div class="software-text">
-                        <!-- CATIA -->
+                       <!-- CATIA -->
                         <span><img class="XNo5Ab" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcBAMAAACAI8KnAAAAIVBMVEVHcEyXmZuXmZuXmZuXmZuXmZuXmZuXmZuXmZuXmZuXmZusYMLuAAAAC3RSTlMADjpni6ke3/5NxwSIMyEAAADWSURBVHgBdc6lQgRAEIDh/1wKLg1JR8It4VpwabglpCDtfLiCW8LlMZk912/dZodiKruWRtZJcZ6JSCjruGJzUhrJYpdrsjiEbM9Bsjhlliy+MFk8MoilgpTJEx7O5GIQg7ogNol+LyXfb4Er/e9BZ3853lRWq6LaPHKEQcvL3YQEWU195YTJmD5Oxp2A5xBOvWF4Avo+Ar5EsPo3rOaiLRFsdZ39GOovaO6G9fANNWli10V0tDS/dE7Lpdl77zVJqGgbOHUcAsvmy+064BAZJ8MdvqGkfxbVN5CAHFWcAAAAAElFTkSuQmCC" style="height:26px;width:26px" alt="" data-csiid="WF1FafSpBY2JkdUPu6TR0AE_3" data-atf="1">Catia</span>
                         <!-- Rhino -->
                         <span><img class="XNo5Ab" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjcmHyU3Nzc3Nys3Nys3Nzc3ODc3Nzc3NysrKzc3Nzc3Nzc3Nzc3Kys4Nzg3Ny43KysrNzcrLv/AABEIACAAIAMBIgACEQEDEQH/xAAaAAEAAgMBAAAAAAAAAAAAAAAHBAUCBggA/8QAKxAAAgIBAwMCBQUBAAAAAAAAAQIDBBEABQYSITFBURMVMlJhIiNxlNEH/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAMAwEAAhEDEQA/ANr4vx3ZJuM7RNNs22ySPRhd3epGSxKKSSSO5J0S8lho1N9vQ0oKT11lboKV4yMe2caSOGIeQ8d2uO7usYrpVjT5fVfpZgqgfuHPUc48DA1F55wCe9aht8erwg9ASSupVB28MM4HjQF2YfSrU/qx/wCaxlEDV7ANaqMQSEEV0BB6Dggge+pu97Na2e+lCw0UltlDNFCeooT4U/n+PfVvf4yuw8asbjyBjHbsQulSkDhiSpyz+wA9PfGgy4qL823bZLxyevPbhgEdqi0nw5HxIXBHcEj6e6nPb2007DSsVaCG/YlmuSKGnLyFgreoUeAB47edcq1bbQfCkhm+HImCGVsEHSFQ/wCj/MNllocgsyNJHEQkit2sIfKOPu7fpfyD5yM5LdkI/I7HGuDRy7oKMTblZZmjXJZ3b1OTnpHfvjQfybf72/27F7cJeqRkIVR9KL9oHoNe5TyJd6uV2SRzBUrpXhMzAuVX1b8kknVHLKhjYBh3B9dEf//Z" style="height:26px;width:26px" alt="" data-csiid="smJFaf3YGbLt7M8Pm-2DgAs_3" data-atf="1">Rhinoceros</span>
@@ -664,7 +684,6 @@
                     <span class="skill-title">Langues</span>
                     <ul class="simple-list">
                         <li>Anglais niveau Bac+3 / B1 (CECRL)</li>
-                        
                     </ul>
                 </div>
             </section>
@@ -672,16 +691,12 @@
 
         <!-- COLONNE DROITE -->
         <main>
-            <section >
-                <h2 style="display: flex; align-items: center; border-bottom: none;">
-                <span style="border-bottom: 3px solid var(--accent-color);">Expériences Professionnelles</span>
-                <button id="btn-details"><span class="btn-emoji">👁️</span> Détails</button>
-            </h2>
-
-                 
-
-                
-                
+            <section>
+                <div class="header-title-row">
+                    <h2 style="margin-bottom: 0; border-bottom: 3px solid var(--accent-color);">Expériences Professionnelles</h2>
+                    <button id="btn-details"><span class="btn-emoji">👁️</span> Détails</button>
+                </div>
+                <br> <!-- Espacement visuel -->
 
                 <article class="job-card">
                     <div class="job-header">
@@ -693,15 +708,12 @@
                     <div class="job-desc">      
                         <ul>
                             <li>Développement du GyrOSC: Conception d’une interface gestuelle MIDI pour la MAO (contrôleur inertiel sensible aux accélérations et inclinaisons). </li> <li>Hardware & Code: C++ sur microcontrôleur ESP32 (Arduino), intégration de capteurs de mouvement, écran, boutons et batterie.</li> <li>CAO & Fabrication: Modélisation complète sous Onshape, prototypage en impression 3D, soudure et assemblage en atelier.</li>
-                            <li class="job-item-sep"></li>
-                            <li style="margin-top: 15px;">Installation et utilisation d'outils et modèle d'IA (GitHub & Hugginface)</li>
+                            <li class="job-item-sep" style="margin-bottom: 15px;"></li>
+                            <li >Installation et utilisation d'outils et modèle d'IA (GitHub & Hugginface)</li>
                             <li>Exploration approfondie des IA génératives locales (ComfyUI, SD1.5, SDXL, AnimateDiff, Wan, Flux, Zimage, Hunyuan3D...) pour la génération d'images, de vidéos et de modèles 3D.</li>                            
                             <li>Développement d'outils et scripts (Python, html, css, js) assisté par LLM (LM Studio, Claude, Gemini) pour automatiser la gestion de données multimédia et la création d'outils.</li>
                             <li>Veille technique quotidienne sur l'évolution des outils créatifs et leur intégration dans des workflows de production.</li>
                         </ul>
-        
-                    
-                        
                     </div> 
                 </article>
 
@@ -710,7 +722,7 @@
                         <h3>Concepteur Aéronautique (Prototype Drone)</h3>
                         <span class="job-date">Jan. 2025 – Fev. 2025</span>
                     </div>
-                    <div class="job-company">Société <u>Aviation Design</u>  (91)</div>
+                    <div class="job-company">Société <u>Aviation Design</u> (91)</div>
                      <p class="job-summary">> Conception numérique intégrale d'un prototype d'aéronef sous Catia V5...</p>
                     <div class="job-desc">
                         <ul>
@@ -726,7 +738,7 @@
                         <h3>Dessinateur Projeteur Industrialisation</h3>
                         <span class="job-date">Avril 2023 – Nov. 2024</span>
                     </div>
-                    <div class="job-company">Maison  <u> Cartier  </u>  - Joaillerie (Paris)</div>
+                    <div class="job-company">Maison <u>Cartier</u> - Joaillerie (Paris)</div>
                     <p class="job-summary">> Industrialisation de pièces de Haute Joaillerie & Optimisation de production...</p>
                     <div class="job-desc">
                         <ul>
@@ -759,7 +771,7 @@
                         <h3>Maquettiste 3D, bijoutier, joaillier</h3>
                         <span class="job-date">Mars 2021 – Mars 2022</span>
                     </div>
-                    <div class="job-company">Société  <u> Bijouterie Nion Legrand </u>  (29)</div>
+                    <div class="job-company">Société <u>Bijouterie Nion Legrand</u> (29)</div>
                      <p class="job-summary">> Conception 3D paramétrique et fabrication en atelier de bijoux sur mesure...</p>
                     <div class="job-desc">
                         <ul>
@@ -776,7 +788,7 @@
                         <h3>Dessinateur Projeteur</h3>
                         <span class="job-date">Sept 2016 – Mars 2018</span>
                     </div>
-                    <div class="job-company">Société <u>CEA </u>  – Institut de Recherche sur les Lois Fondamentales de l’Univers (91)</div>
+                    <div class="job-company">Société <u>CEA</u> – Institut de Recherche sur les Lois Fondamentales de l’Univers (91)</div>
                      <p class="job-summary">> Conception d'équipements scientifiques de pointe pour la recherche fondamentale...</p>
                     <div class="job-desc">
                         <ul>
@@ -807,7 +819,7 @@
                         <h3>Assistant Ingénieur</h3>
                         <span class="job-date">Avril 2009 - Mai 2015</span>
                     </div>
-                    <div class="job-company">Société <u> Aviation Design</u>  (91)</div>
+                    <div class="job-company">Société <u>Aviation Design</u> (91)</div>
                      <p class="job-summary">> Gestion de projets de prototypes aéronautiques ...</p>
                     <div class="job-desc">
                         <ul>
@@ -823,7 +835,7 @@
                         <h3>Dessinateur Projeteur</h3>
                         <span class="job-date">Sept 2006 – Mars 2009</span>
                     </div>
-                    <div class="job-company">Société  <u> 3DConcept </u>  (91)</div>
+                    <div class="job-company">Société <u>3DConcept</u> (91)</div>
                      <p class="job-summary">> Conception, fabrication et pose sur chantiers d'ouvrages métalliques et architecturaux...</p>
                     <div class="job-desc">
                         <ul>
@@ -884,42 +896,38 @@
         <footer class="footer-interests">
             <h2>Centres d'intérêt & Passions</h2>
             <div class="interest-tags">
-
                 <span class="interest-item">🎨 Sculpture & Modelage</span>
-                <span class="interest-item">🔨 DIY & Bricolage</span>
+                <span class="interest-item">🔨 DIY & Bricolage     </span>
                 <span class="interest-item">🤖 Électronique & Arduino</span>
                 <span class="interest-item">🧠 IA Générative & Sciences</span> 
                 <span class="interest-item">📷 Macrophotographie & Photogrammétrie</span>
                 <span class="interest-item">🎵 Pratique Musicale & MAO</span>
                 <span class="interest-item">🏃 Course & Entretien Physique</span>
-
             </div>
         </footer>
         </main>
     </div>
+    
     <div style="text-align: center; font-size: 0.75rem; color: #b9b9b9; margin-top: 40px; padding-bottom: 20px; font-family: var(--font-tech);">
-        Dernière mise à jour : 16 février 2026
+        Dernière mise à jour : 25 février 2026
     </div>
 
     <!-- SCRIPT ANIMATION SCROLL (Zone milieu écran) -->
     <script>
-
         // GESTION DU BOUTON DÉTAILS
         const btnDetails = document.getElementById('btn-details');
 
-            // On lance l'animation au démarrage
+        // On lance l'animation au démarrage
         btnDetails.classList.add('animate-breath');
 
         btnDetails.addEventListener('click', () => {
-                // --- NOUVEAU : On supprime l'animation au premier clic ---
+            // On supprime l'animation au premier clic
             btnDetails.classList.remove('animate-breath');
             const descriptions = document.querySelectorAll('.job-desc');
-            const summaries = document.querySelectorAll('.job-summary'); // Sélectionne les résumés
+            const summaries = document.querySelectorAll('.job-summary'); 
 
-            // Bascule l'affichage des détails (Ouvre/Ferme)
+            // Bascule l'affichage des détails et résumés
             descriptions.forEach(desc => desc.classList.toggle('is-open'));
-
-            // Bascule l'affichage des résumés (Cache/Montre)
             summaries.forEach(sum => sum.classList.toggle('is-hidden'));
 
             // Change le bouton
@@ -930,11 +938,9 @@
             }
         });
 
-
-
         // On active le script UNIQUEMENT si l'appareil ne gère pas le survol (donc Tactile)
         // OU s'il est vraiment petit (sécurité pour vieux téléphones)
-        if (window.matchMedia("(hover: none), (max-width: 768px)").matches) {
+        if (window.matchMedia("(hover: none), (max-width: 850px)").matches) {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -944,25 +950,14 @@
                     }
                 });
             }, { 
-                /*
-                -40% en haut et -40% en bas.
-                Signifie que la "zone active" ne fait que les 20% du milieu de l'écran.
-                */
                 rootMargin: '-45% 0px -45% 0px', 
-                threshold: 0 /* Dès qu'un pixel touche la zone centrale, ça s'active */
+                threshold: 0 
             });
 
             document.querySelectorAll('.job-card').forEach((el) => {
                 observer.observe(el);
             });
         }
-
-
-        
-
-        
-
     </script>
-
 </body>
 </html>
