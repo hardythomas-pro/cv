@@ -194,8 +194,8 @@
             padding-left: clamp(15px, 3vw, 30px);
         }
 
-        .job-card { margin-bottom: 2.5rem; position: relative; }
-        .edu-card { margin-bottom: 1.5rem; position: relative; }
+        .job-card { margin-bottom: 1rem; position: relative; }
+        .edu-card { margin-bottom: 1rem; position: relative; }
 
         .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; }
 
@@ -266,9 +266,9 @@
         .footer-interests {
             grid-column: 1 / -1;
             background: #f9f9f9;
-            padding: 2rem;
+            padding: 1rem;
             border-radius: 8px;
-            margin-top: 2rem;
+            margin-top: 1rem;
             text-align: center;
             border-top: none;
         }
@@ -342,7 +342,7 @@
 
         @keyframes glowPulse {
             0% { transform: scale(1); box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); }
-            50% { transform: scale(1.02);opacity: 0.5; box-shadow: 0 0 8px 5px var(--accent-color-2); color: var(--accent-color); }
+            50% { transform: scale(1.02); opacity: 0.6; box-shadow: 0 0 8px 5px var(--accent-color-2); color: var(--accent-color); }
             100% { transform: scale(1); box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.6); }
         }
 
@@ -384,6 +384,7 @@
             @page { size: A4; margin: 0.5cm; }
 
             body { 
+                 
                 font-size: 8pt; 
                 line-height: 1.2; 
                 background: white; 
@@ -606,16 +607,8 @@
             <section>
                 <h2>LIENS</h2>
                 <div class="skill-group">
-                    <span class="skill-title">PortFolio <i>(projets personnels)</i></span>
-                    <ul class="simple-list sidebar-links">
-                         <li>
-                            <a href="https://labo3d.org" target="_blank">
-                                🔗 Site Web: Labo3D.org  
-                            </a>
-                        </li>             
-                    </ul>
-
-                    <span style="margin-top: 30px;" class="skill-title">Projets Pro <i>(liste non exhaustive)</i></span>
+                    
+                    <span  class="skill-title">Projets Pro <i>(liste non exhaustive)</i></span>
                     <ul class="simple-list sidebar-links">
                          <li>
                             <a href="https://www.cartier.com/fr-fr/jewellery/necklaces/panthere-de-cartier/collier-torque-panthere-de-cartier-articule-pave-CRN7424435" target="_blank">
@@ -652,6 +645,14 @@
                                 🔗 3DConcept - Boutiques APD
                             </a>
                         </li>
+                    </ul>
+                    <span style="margin-top: 30px;"class="skill-title">PortFolio <i>(projets personnels)</i></span>
+                    <ul class="simple-list sidebar-links">
+                         <li>
+                            <a href="https://labo3d.org" target="_blank">
+                                🔗 Site Web: Labo3D.org  
+                            </a>
+                        </li>             
                     </ul>
                 </div>
 
@@ -944,11 +945,11 @@
                     </div>
                     <div class="job-company">Vauban - Brest</div>
                 </div>
+
             </section>
 
-             <!-- FOOTER / INTERETS -->
-        <footer class="footer-interests">
-            <h2>Centres d'intérêt & Passions</h2>
+            <section>
+                <h2>Centres d'intérêt</h2>
             <div class="interest-tags">
                 <span class="interest-item">🎨 Sculpture & Modelage</span>
                 <span class="interest-item">🔨 DIY & Bricolage     </span>
@@ -958,12 +959,14 @@
                 <span class="interest-item">🎵 Pratique Musicale & MAO</span>
                 <span class="interest-item">🏃 Course & Entretien Physique</span>
             </div>
-        </footer>
+
+            </section>
+
         </main>
     </div>
     
     <div style="text-align: center; font-size: 0.75rem; color: #b9b9b9; margin-top: 40px; padding-bottom: 20px; font-family: var(--font-tech);">
-        Dernière mise à jour : 25 février 2026
+        Dernière mise à jour : 8 Mars 2026
     </div>
 
     <!-- SCRIPT ANIMATION SCROLL (Zone milieu écran) -->
